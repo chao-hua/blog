@@ -18,7 +18,17 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 ### 3
 ### 3
 
-![An image](./public/hero.png)
+![An image](./.vuepress/public/hero.png)
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
+
+
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|

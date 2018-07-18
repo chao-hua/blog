@@ -10,5 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "element-ui": "^2.4.4",
+    "vue": "^2.5.16"
+  }
 }
