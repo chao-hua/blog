@@ -18,12 +18,20 @@ module.exports = {
                 ],
             },
             {
-                text: '配置参考',
-                link: 'http://www.baidu.com',
+                text: 'JavaScript',
+                link: '/js/',
             }
         ],
         sidebar: {
             '/guide/': genSidebarConfig('指南'),
+            '/js/':[{
+                title:'JavaScript 知识点总结',
+                collapsable: false,
+                children: [
+                // '',
+                    'prototype',
+                ],
+            }]
         }
     }
 }
