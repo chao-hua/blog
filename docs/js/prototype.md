@@ -1,21 +1,21 @@
+
 # 原型与原型链
+
+[[toc]]
 
 ## 原型
 
-### `prototype`(原型)
+### `prototype`
 
 每创建一个函数，该函数都有一个 `prototype` 属性，该属性的值是一个对象，我们把它叫做该函数的原型对象，这个对象默认有一个 `constructor` 属性，该属性指向该函数本身。
 
 ```js
-function Foo(){};
-
+function Foo() {};
 Foo.prototype.constructor === Foo; // true
-
 let f1 = new Foo();
-
 ```
 
-### `__proto__`(隐式原型)
+### `__proto__`
 
 首先明确 2 个点前置知识：
 
@@ -25,7 +25,7 @@ let f1 = new Foo();
     + `let arr = []` 实质是 `let arr = new Array()`
     + `function f(){}` 实质是 `let f = new Function()`
 
-每创建一个对象，该对象都有一个隐藏属性 `__proto__`(`[[prototype]]`)，叫做隐式原型，该属性指向了创建这个对象的函数的 `prototype`属性（即该函数的原型对象）。即 `f1.__proto__ === Foo.prototype // true`。
+每创建一个对象（`null`除外），该对象都有一个隐藏属性 `__proto__`(`[[prototype]]`)，叫做隐式原型，该属性指向了创建这个对象的函数的 `prototype`属性（即该函数的原型对象）。即 `f1.__proto__ === Foo.prototype // true`。
 
 注意几点：
 
@@ -42,3 +42,27 @@ let f1 = new Foo();
 ![原型示例2](http://oixvuz0x6.bkt.clouddn.com/181512068463597.png)
 
 ## 原型链
+
+访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着 `__proto__` 这条链向上找，这就是原型链。
+
+```js
+function Foo() {}
+Foo.prototype.a = 1;
+Foo.prototype.b = 2;
+
+let f1 = new Foo();
+f1.a = 10;
+
+for (let item in f1) {
+    if (f1.hasOwnProperty(itme)) {
+        console.log(item);
+    }
+}
+```
+![原型示例3](http://oixvuz0x6.bkt.clouddn.com/201807201128521.png)
+
+对象的原型链是沿着 `__proto__` 这条线走的，因此在查找 `f1.hasOwnProperty` 属性时，先在自身查找，自身没有；再到 `Foo.prototype` 中查找，没有找到；就会顺着原型链一直查找到 `Object.prototype`，这样我们就通过原型链实现了所谓的“继承”。
+
+***
+参考：  
+[深入理解javascript原型和闭包系列](http://www.cnblogs.com/wangfupeng1988/tag/%E5%8E%9F%E5%9E%8B/)

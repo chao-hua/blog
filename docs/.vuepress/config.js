@@ -12,10 +12,10 @@ module.exports = {
             {
                 text: '指南',
                 link: '/guide/',
-                items: [ // 下拉列表展示
+                /*items: [ // 下拉列表展示
                     { text: 'item1', link: '/guide/basic-config' },
                     { text: 'item2', link: '/guide/getting-started' },
-                ],
+                ],*/
             },
             {
                 text: 'JavaScript',
@@ -24,11 +24,11 @@ module.exports = {
         ],
         sidebar: {
             '/guide/': genSidebarConfig('指南'),
-            '/js/':[{
-                title:'JavaScript 知识点总结',
+            '/js/': [{
+                title: 'JavaScript 知识点总结',
                 collapsable: false,
                 children: [
-                // '',
+                    '',
                     'prototype',
                 ],
             }]
