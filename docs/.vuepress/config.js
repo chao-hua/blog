@@ -30,6 +30,7 @@ module.exports = {
                 children: [
                     '',
                     'prototype',
+                    'class',
                 ],
             }]
         }
