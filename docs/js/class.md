@@ -104,8 +104,6 @@ p1.friends === p2.friends // true
 
 ## 4.组合模式（最常见方式）
 
-> 组合使用构造函数模式和原型模式，构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性
-
 ```js{1,6}
 function Person(name) {
     this.name = name;
@@ -124,6 +122,8 @@ var p2 = new Person('xx');
 
 p1.friends === p2.friends // false
 ```
+
+> 组合使用构造函数模式和原型模式，构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性
 
 优点：是一种使用最广泛、认同度最高的一种创建自定义类型的方法。  
 缺点：封装性看起来比较困惑，分散在构造函数与原型两部分。
@@ -151,15 +151,74 @@ var p1 = new Person('hc');
 
 ## 6.两种特殊方式
 
-### 6.1 寄生构造函数
+### 6.1 寄生(parasitic)构造函数
 
-### 6.2 稳妥构造函数
+```js{2,8,11}
+function Person(name) {
+    var o = new Object();
+    o.name = name;
+    o.friends = ['a', 'b'];
+    o.getName = function() {
+        console.log(this.name);
+    }
+    return o;
+}
 
-## 7.`class` 
+var p1 = new Person('hc');
+p1 instanceof Person // false
+```
+
+> 这个模式除了使用 `new` 操作符来新建对象实例外，其他和工厂模式一模一样。构造函数在没有返回的情况下，默认返回新对象实例；在构造函数末尾添加 `return` 语句，可以重写调用构造函数时返回的值。因此这种模式返回的对象与构造函数或者构造函数的原型属性之间没有关系（无法通过 `instanceof` 来确定对象类型）。所以在可以使用其他方式的情况下，不推荐使用这种方式。  
+>   这种方式可以在特殊情况下使用。例如想创建一个具有额外方法的特殊数组（修改原生、既有对象），但是又不想直接修改 `Array` 构造函数。在构造函数中使用 `var arr = new Array(); ...; return arr;`
+
+### 6.2 稳妥(durable)构造函数
+
+```js{5,10}
+function Person(name) {
+    var o = new Object();
+    o.name = name;
+    o.getName = function() {
+        console.log(name);
+    }
+    return o;
+}
+
+var p1 = Person('hc');
+p1.getName(); // "hc"
+```
+
+> 稳妥对象指的是：没有公共属性，而且其方法也不引用 `this` 的对象。稳妥对象最适合在一些安全的环境中，或者防止数据被其他应用程序改动时使用。  
+> 与寄生模式类型，有两点不同：构造函数中不用 `this`；不用 `new` 调用构造函数。稳妥构造函数模式也跟工厂模式一样，无法识别对象所属类型。
+
+## 7.class（最推荐方式）
+
+```js
+class Person {
+    constructor(name) {
+        this.name = name;
+        this.friends = ['a', 'b'];
+    }
+    getName() {
+        console.log(this.name);
+    }
+}
+
+typeof Person // "function"
+Person === Person.prototype.constructor // true
+
+var p1 = new Person('hc');
+```
+`class` 是 ES6 中对象模板，是一个语法糖。与 ES5 中创建对象区别有以下几点：  
+
+- 类内部定义的方法，都是不枚举的。
+- 类必须用 `new`，否则报错。
+
+优点：让对象原型更清晰，更像面向对象编程语法。
 
 ***
 参考：  
-《JavaScript高级程序设计》(第3版)
+《JavaScript高级程序设计》(第3版)  
+[Class 的基本语法](https://github.com/ruanyf/es6tutorial/blob/gh-pages/docs/class.md)
 
 
     
