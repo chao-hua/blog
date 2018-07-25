@@ -31,6 +31,7 @@ module.exports = {
                     '',
                     'prototype',
                     'class',
+                    'extends'
                 ],
             }]
         }
