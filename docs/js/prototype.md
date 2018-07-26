@@ -21,9 +21,9 @@ let f1 = new Foo();
 
 - 函数是一种特殊的对象。
 - 对象都是通过函数来创建的（一些语法糖弱化了这个概念）。
-    + `let obj = {}` 实质是 `let obj = new Object()`
-    + `let arr = []` 实质是 `let arr = new Array()`
-    + `function f(){}` 实质是 `let f = new Function()`
+    + `let obj = {}` 实质是 `let obj = new Object()`。
+    + `let arr = []` 实质是 `let arr = new Array()`。
+    + `function f(){}` 实质是 `let f = new Function()`。
 
 每创建一个对象（`null`除外），该对象都有一个隐藏属性 `__proto__`(`[[prototype]]`)，叫做隐式原型，该属性指向了创建这个对象的函数的 `prototype`属性（即该函数的原型对象）。即 `f1.__proto__ === Foo.prototype // true`。
 
