@@ -4,7 +4,7 @@
 
 ## 1.原型链继承
 
-```js{14}
+```js
 function Super() {
     this.property = 'super';
     this.arr = ['a', 'b']
@@ -41,7 +41,7 @@ sub2.arr; // ["a", "b", "c"]
 
 ## 2.借用构造函数/经典继承
 
-```js{14}
+```js
 function Super(property) {
     this.property = property;
     this.arr = ['a', 'b'];
@@ -87,7 +87,7 @@ sub1.getSuperValue1(); // error
 
 ## 3.组合继承/伪经典继承（最常见方式）
 
-```js{12,17}
+```js
 function Super(property) {
     this.property = property;
     this.arr = ['a', 'b'];
@@ -187,7 +187,7 @@ function createObj(o) {
 
 ## 6.寄生组合式继承（最理想方式）
 
-```js{1,23}
+```js
 function inheritPrototype(subType, superType) {
     var prototype = Object.create(superType.prototype); // 创建对象
     prototype.constructor = subType; // 增强对象
@@ -230,7 +230,7 @@ Sub.prototype.getSubValue = function() {
 
 ## 7.extends（最推荐方式）
 
-```js{13}
+```js
 class Super {
     constructor(property) {
         this.property = property;
