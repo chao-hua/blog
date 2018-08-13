@@ -218,6 +218,13 @@ var p1 = new Person('hc');
 
 优点：让对象原型更清晰，更像面向对象编程语法。
 
+注：ES6 并没有真正实现类的概念。我们看下 Babel 对上面程序的编译结果，当中我们能看到如下语句：
+
+```js
+Object.defineProperty(target, descriptor.key, descriptor);
+Object.create();
+```
+
 ***
 参考：  
 《JavaScript高级程序设计》(第3版)  
