@@ -1,3 +1,5 @@
+# bind 函数
+
 `Function.prototype.bind` 在 ECMA-262 第五版才被加入；它可能无法在所有浏览器上运行。MDN 给出的 Polyfill：
 
 ```js
