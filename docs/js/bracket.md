@@ -4,7 +4,7 @@
 
 目前遇到的几种函数后面省略括号的情况：
 
-## 构造函数
+## 1.构造函数
 
 ```js
 function Person() {
@@ -26,7 +26,7 @@ new Person.name;// 报错
 - new 命令本身就可以执行构造函数，所以后面的构造函数带不带括号都可以是等价的，但是为了表示这里是函数调用，推荐使用括号。
 - 在生成实例时没有区别，但是在属性连用的需要小心，因为运算符优先级的问题，new < . 所以会出现问题。
 
-## setTimeout/setInterval
+## 2.setTimeout/setInterval
 
 ```js
 function foo() {
