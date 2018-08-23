@@ -23,14 +23,17 @@ module.exports = {
                     '',
                     'prototype',
                     'class',
-                    'extends'
+                    'extends',
+                    'fibonacci',
+                    'bracket',
+                    'bind'
                 ],
             }]
         }
     }
 }
 
-function genSidebarConfig(title) {
+/*function genSidebarConfig(title) {
     return [{
         title,
         collapsable: false,
@@ -47,4 +50,4 @@ function genSidebarConfig(title) {
             'array-method'
         ],
     }]
-}
+}*/

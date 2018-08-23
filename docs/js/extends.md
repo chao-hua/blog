@@ -269,5 +269,5 @@ ES5 的继承，实质是先创造子类的实例对象 `this`，然后再将父
 ***
 参考：  
 《JavaScript高级程序设计》(第3版)  
-[Class 的继承](hhttps://github.com/ruanyf/es6tutorial/blob/gh-pages/docs/class-extends.md)
+[Class 的继承](https://github.com/ruanyf/es6tutorial/blob/gh-pages/docs/class-extends.md)
 
