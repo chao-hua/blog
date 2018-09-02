@@ -27,7 +27,8 @@ module.exports = {
                     'fibonacci',
                     'bracket',
                     'bind',
-                    'fibonacci',
+                    'debounce',
+                    'throttle',
                 ],
             }]
         }
