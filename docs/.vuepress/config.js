@@ -26,7 +26,8 @@ module.exports = {
                     'extends',
                     'fibonacci',
                     'bracket',
-                    'bind'
+                    'bind',
+                    'fibonacci',
                 ],
             }]
         }
