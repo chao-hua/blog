@@ -18,6 +18,9 @@
 - Diff 算法
 - 响应式布局
 - 移动端布局
+- bind
+- throttle
+- debounce
 
 ## 业务
 
