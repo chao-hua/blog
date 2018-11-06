@@ -1,4 +1,5 @@
-JavaScript
+# 慕课网前端部分列表
+## JavaScript
 
 - [JavaScript正则表达式](http://www.imooc.com/learn/706) 1h30m
 - [ES6快速入门](http://www.imooc.com/learn/955) 1h25m
@@ -20,7 +21,7 @@ JavaScript
 - [DatePicker组件开发](http://www.imooc.com/learn/820) 1h30m
 - [阿当大话西游之WEB组件](http://www.imooc.com/learn/99) 3h
 
-CSS
+## CSS
 
 - [CSS深入理解之padding](http://www.imooc.com/learn/710) 30m
 - [CSS深入理解之margin](http://www.imooc.com/learn/680) 1h23m
@@ -37,7 +38,7 @@ CSS
 - [响应式布局](http://www.imooc.com/learn/41) 54m
 - [移动web开发适配秘籍Rem](http://www.imooc.com/learn/942) 1h
 
-综合：
+## 综合：
 
 - [项目上线流程](http://www.imooc.com/learn/1004) 46m
 - [从零做一个前端开源项目](http://www.imooc.com/learn/1003) 2h
@@ -45,7 +46,7 @@ CSS
 - [浅谈搜索引擎_SEO](http://www.imooc.com/learn/855) 2h15m
 - [前端工程师必备的PS技能——切图篇](http://www.imooc.com/learn/506) 2h8m
 
-实战：
+## 实战：
 
 - [Web App用组件方式开发全站](https://coding.imooc.com/class/chapter/15.html) 9h
 - [所向披靡的响应式开发](http://coding.imooc.com/class/50.html) 10h
