@@ -10,14 +10,18 @@ module.exports = {
                 link: '/',
             },
             {
-                text: 'JavaScript',
+                text: 'JavaScript 学习笔记',
                 link: '/js/',
-            }
+            },
+            {
+                text: '慕课网学习笔记',
+                link: '/imooc/',
+            },
         ],
         sidebar: {
             // '/guide/': genSidebarConfig('指南'),
             '/js/': [{
-                title: 'JavaScript 知识点总结',
+                title: 'JavaScript 学习笔记',
                 collapsable: false,
                 children: [
                     '',
@@ -30,7 +34,15 @@ module.exports = {
                     'debounce',
                     'throttle',
                 ],
-            }]
+            }],
+            '/imooc/': [{
+                title: '慕课网学习笔记',
+                collapsable: false,
+                children: [
+                    '',
+                    'imooc-list',
+                ],
+            }],
         }
     }
 }
