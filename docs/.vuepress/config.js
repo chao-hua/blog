@@ -41,7 +41,7 @@ module.exports = {
                 children: [
                     '',
                     'imooc-list',
-                    '115',
+                    // '115',
                 ],
             }],
         }
