@@ -4,6 +4,7 @@
 
 - [CSS 深入理解之 float](http://www.imooc.com/learn/121)
 - [CSS 深入理解之 border](http://www.imooc.com/learn/755)
+- [揭秘一线互联网公司 前端 JavaScript 高级面试](https://coding.imooc.com/class/190.html)
 
 ## Done
 
@@ -68,7 +69,7 @@
 - [全面系统讲解 CSS 工作应用+面试一步搞定](https://coding.imooc.com/class/164.html) 11h
 - [前端 JavaScript 面试技巧](https://coding.imooc.com/class/115.html) 11h
 - [Javascript 设计模式系统讲解与应用](https://coding.imooc.com/class/255.html) 11h
-- [前端跳槽必备 揭秘一线互联网公司高级前端 JavaScript 面试](https://coding.imooc.com/class/190.html) 16h
+- [揭秘一线互联网公司 前端 JavaScript 高级面试](https://coding.imooc.com/class/190.html) 16h
 - [前端跳槽面试必备技巧](https://coding.imooc.com/class/129.html) 14h
 - [Vue.js 源码全方位深入解析](https://coding.imooc.com/class/228.html) 22h
 - [Vue+Vue-Router+Vuex+SSR 实战精讲](https://coding.imooc.com/class/196.html) 15h

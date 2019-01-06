@@ -42,6 +42,7 @@ module.exports = {
                     '',
                     'imooc-list',
                     '115',
+                    '190',
                 ],
             }],
         }
