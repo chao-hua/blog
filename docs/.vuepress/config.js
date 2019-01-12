@@ -41,6 +41,7 @@ module.exports = {
                 children: [
                     '',
                     'imooc-list',
+                    'css-deep-series',
                     '115',
                     '190',
                 ],
