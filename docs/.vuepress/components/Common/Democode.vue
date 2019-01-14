@@ -67,6 +67,12 @@ export default {
       border-bottom: 1px solid #ddd;
     }
   }
+  .code--segment{
+    pre{
+      margin:0;
+      border-radius: 0;
+    }
+  }
   .code--button {
     background: #fafbfc;
     color: #409eff;

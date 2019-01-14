@@ -30,14 +30,25 @@
 		* 不支持百分比宽度。
 		* 因此适用于一侧宽度固定的两栏等高布局。
 
-<ClientOnly>
-  <!-- <test></test> -->
-  <button-template></button-template>
-</ClientOnly>
-
 <Common-Democode title="基本用法" description="基本按钮用法">
   <test-test1></test-test1>
-  <highlight-code slot="codeText" lang="vue">
+  <h1>11</h1>
+
+```html
+  <div class="demo-button">
+    <div>
+      <dt-button>默认按钮</dt-button>
+      <dt-button type="primary">主要按钮</dt-button>
+      <dt-button type="success">成功按钮</dt-button>
+      <dt-button type="info">信息按钮</dt-button>
+      <dt-button type="warning">警告按钮</dt-button>
+      <dt-button type="danger">危险按钮</dt-button>
+    </div>
+  </div>
+```
+
+
+  <highlight-code slot="codeText" lang="html">
     <template>
       <div class="demo-button">
         <div>
@@ -50,7 +61,7 @@
         </div>
       </div>
     </template>
+
+
   </highlight-code>
 </Common-Democode>
-
-<imooc-css-deep-border></imooc-css-deep-border>
