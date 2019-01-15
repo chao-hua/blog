@@ -47,7 +47,6 @@
   </div>
 ```
 
-
   <highlight-code slot="codeText" lang="html">
     <template>
       <div class="demo-button">
@@ -61,7 +60,5 @@
         </div>
       </div>
     </template>
-
-
   </highlight-code>
 </Common-Democode>
