@@ -3,8 +3,8 @@
     <div>
       测试
     </div>
-    <highlight-code lang="html">
-    <!-- <template> -->
+    <!-- <highlight-code lang="html">
+    <template>
       <div class="demo-button">
         <div>
           <dt-button>默认按钮</dt-button>
@@ -15,8 +15,8 @@
           <dt-button type="danger">危险按钮</dt-button>
         </div>
       </div>
-    <!-- </template> -->
-  </highlight-code>
+    </template>
+      </highlight-code> -->
   </div>
 </template>
 

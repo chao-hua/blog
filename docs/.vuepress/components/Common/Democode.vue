@@ -6,6 +6,7 @@
     </div>
     <div class="code--demo">
       <div class="code-content">
+        <slot name="html"></slot>
         <slot></slot>
       </div>
     </div>

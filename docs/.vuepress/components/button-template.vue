@@ -12,7 +12,7 @@
             <strong>代码</strong>
         </p>
         <pre><code>{{content}}</code></pre>
-        <highlight-code lang="vue">
+        <!-- <highlight-code lang="vue">
             <template>
                 <e-button>测试</e-button>
                 <js-button @click="test">默认按钮</js-button>
@@ -24,7 +24,7 @@
         <highlight-code lang="javascript">
             let str = 'Hello, World!';
             console.log(str);
-        </highlight-code>
+        </highlight-code> -->
     </div>
 </template>
 <script>
