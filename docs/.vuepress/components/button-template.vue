@@ -4,10 +4,6 @@
         <p>
             <strong>预览</strong>
         </p>
-        <!-- <js-button @click="test">默认按钮</js-button>
-        <js-button icon="settings">默认按钮</js-button>
-        <js-button :loading="true">默认按钮</js-button>
-        <js-button disabled>默认按钮</js-button> -->
         <p>
             <strong>代码</strong>
         </p>
