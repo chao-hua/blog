@@ -2,12 +2,12 @@
 
 ## Doing
 
-- [CSS 深入理解之 float](http://www.imooc.com/learn/121)
-- [CSS 深入理解之 border](http://www.imooc.com/learn/755)
 - [揭秘一线互联网公司 前端 JavaScript 高级面试](https://coding.imooc.com/class/190.html)
 
 ## Done
 
+- [CSS 深入理解之 float](http://www.imooc.com/learn/121)
+- [CSS 深入理解之 border](http://www.imooc.com/learn/755)
 - [前端 JavaScript 面试技巧](https://coding.imooc.com/class/115.html)
 
 ## ToDo
