@@ -4,6 +4,7 @@
 
 - [揭秘一线互联网公司 前端 JavaScript 高级面试](https://coding.imooc.com/class/190.html)
 - [让你页面速度飞起来 Web 前端性能优化](https://coding.imooc.com/class/130.html)
+- [前端面试项目冲刺，京东金融 Vue 组件化实战](https://coding.imooc.com/class/175.html)
 
 ## Done
 
