@@ -44,9 +44,9 @@ module.exports = {
                     'css-deep-series',
                     '115',
                     '190',
-                    '190',
                     '171',
                     '175',
+                    'css-modules',
                 ],
             }],
         }
