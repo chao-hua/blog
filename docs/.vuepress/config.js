@@ -17,6 +17,10 @@ module.exports = {
                 text: '慕课网学习笔记',
                 link: '/imooc/',
             },
+            {
+                text: '杂记',
+                link: '/others/',
+            },
         ],
         sidebar: {
             // '/guide/': genSidebarConfig('指南'),
@@ -47,6 +51,15 @@ module.exports = {
                     '171',
                     '175',
                     'css-modules',
+                ],
+            }],
+            '/others/': [{
+                title: '杂记',
+                collapsable: false,
+                children: [
+                    '',
+                    'cross',
+                    'axios',
                 ],
             }],
         }
