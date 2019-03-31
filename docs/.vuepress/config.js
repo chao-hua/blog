@@ -10,11 +10,15 @@ module.exports = {
                 link: '/',
             },
             {
-                text: 'JavaScript 学习笔记',
+                text: 'JavaScript 笔记',
                 link: '/js/',
             },
             {
-                text: '慕课网学习笔记',
+                text: 'CSS 笔记',
+                link: '/css/',
+            },
+            {
+                text: '慕课网笔记',
                 link: '/imooc/',
             },
             {
@@ -25,7 +29,7 @@ module.exports = {
         sidebar: {
             // '/guide/': genSidebarConfig('指南'),
             '/js/': [{
-                title: 'JavaScript 学习笔记',
+                title: 'JavaScript 笔记',
                 collapsable: false,
                 children: [
                     '',
@@ -39,8 +43,16 @@ module.exports = {
                     'throttle',
                 ],
             }],
+            '/css/': [{
+                title: 'CSS 笔记',
+                collapsable: false,
+                children: [
+                    '',
+                    'modules',
+                ],
+            }],
             '/imooc/': [{
-                title: '慕课网学习笔记',
+                title: '慕课网笔记',
                 collapsable: false,
                 children: [
                     '',
@@ -50,7 +62,6 @@ module.exports = {
                     '190',
                     '171',
                     '175',
-                    'css-modules',
                 ],
             }],
             '/others/': [{
