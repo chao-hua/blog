@@ -5,7 +5,7 @@
 `$mount`
 `updateComponent`
 `Watcher`
-`_update` => `__patch__`
+`_update` => `__patch__` => `createPatchFunction`
 `_render` => vNode
 
 `_vnode`
