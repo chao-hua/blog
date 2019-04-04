@@ -12,3 +12,6 @@
 `createElement`
 `_createElement`
 `createComponent`
+
+new Vue
+`init` => `$mount` => `compile` => `render` => `vnode` => `patch` => DOM
