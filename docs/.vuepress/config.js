@@ -18,6 +18,10 @@ module.exports = {
                 link: '/css/',
             },
             {
+                text: 'Vue 笔记',
+                link: '/vue/',
+            },
+            {
                 text: '慕课网笔记',
                 link: '/imooc/',
             },
@@ -49,6 +53,17 @@ module.exports = {
                 children: [
                     '',
                     'modules',
+                ],
+            }],
+            '/vue/': [{
+                title: 'Vue 笔记',
+                collapsable: false,
+                children: [
+                    '',
+                    'hook',
+                    'source-analyse-1',
+                    'source-analyse-2',
+                    'source-analyse-3',
                 ],
             }],
             '/imooc/': [{

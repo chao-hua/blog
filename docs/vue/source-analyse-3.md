@@ -1,4 +1,4 @@
-# Vue源码分析-数据驱动
+# Vue 源码分析-数据驱动
 
 `_init`
 `initState`
