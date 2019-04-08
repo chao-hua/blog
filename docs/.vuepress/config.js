@@ -3,6 +3,7 @@ module.exports = {
     description: '慢八拍的私人博客，仅作为学习成果的记录与总结', // 描述
     base: '/blog/', // 输出目录
     port: 8080, // dev模式的端口
+    dest: 'dist',
     themeConfig: { //主题配置
         // 导航栏
         nav: [/*{

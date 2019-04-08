@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cd:docs": "cd docs",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:deploy": "npm run cd:docs && deploy.sh"
+    "docs:deploy": "sh deploy.sh"
   },
   "keywords": [],
   "author": "",
