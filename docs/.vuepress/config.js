@@ -5,10 +5,10 @@ module.exports = {
     port: 8080, // dev模式的端口
     themeConfig: { //主题配置
         // 导航栏
-        nav: [{
+        nav: [/*{
                 text: '首页',
                 link: '/',
-            },
+            },*/
             {
                 text: 'JavaScript 笔记',
                 link: '/js/',
