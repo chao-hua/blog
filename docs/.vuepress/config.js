@@ -54,6 +54,9 @@ module.exports = {
                 children: [
                     '',
                     'modules',
+                    'inline-block-space',
+                    'vertical-align',
+                    'justify',
                 ],
             }],
             '/vue/': [{
