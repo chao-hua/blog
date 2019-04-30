@@ -6,63 +6,7 @@
 
 ## 2.运用
 
-### 2.1 去除 `inline-block` 元素间间距
-
-`inline-block` 水平呈现的元素间，由于换行、空格分隔的情况下会产生间距。  
-
-```html
-<section>
-    <style>
-    .space a {
-        display: inline-block;
-        padding: 5px 10px ;
-        background-color: #cad5eb;
-        border: solid 1px #ccc;
-    }
-    </style>
-    <div class="space">
-        <a href="##">连接1</a>
-        <a href="##">连接2</a>
-        <a href="##">连接3</a>
-    </div>
-</section>
-```
-
-解决方法：
-
-- 移除空格
-    + 代码可读性性差
-- `font-size: 0;`
-    + 常用方法
-- 使用 `margin` 负值
-- 使用 `letter-spacing`
-    + `letter-spacing` 属性增加或减少字符间的空白，外层减少间距，内层默认（normal/0）
-    + `.space { letter-spacing: -10px;}` 超过一定大小就没必要再大，不会重叠
-    + `.space a { letter-spacing: 0;}`
-- 使用 `word-spacing`
-    + `word-spacing` 属性增加或减少单词间的空白，外层减少间距，内层默认（normal/0）
-    + `.space { word-spacing: -10px;}` 超过一定大小，会重叠
-    + `.space a { word-spacing: 0;}`
-- 其他
-    + YUI 3 CSS Grids 使用 `letter-spacing` 和 `word-spacing` 去除格栅单元见间隔方法（注意，其针对的是block水平的元素，因此对IE8-浏览器做了hack处理）
-
-```css
-.yui3-g {
-    letter-spacing: -0.31em; /* webkit */
-    *letter-spacing: normal; /* IE < 8 重置 */
-    word-spacing: -0.43em; /* IE < 8 && gecko */
-}
-
-.yui3-u {
-    display: inline-block;
-    zoom: 1; *display: inline; /* IE < 8: 伪造 inline-block */
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
-}
-```
-
-### 2.2 复选框、单选框与文字对齐问题
+### 2.1 复选框、单选框与文字对齐问题
 
 在字体 12px 情况下，主流浏览器都存在复选框、单选框与文字对不齐的问题。可以通过给复选框、单选框设置 `vertical-align` 来解决：
 
@@ -77,7 +21,6 @@
 [复选框单选框与文字对齐问题的研究与解决](https://www.zhangxinxu.com/wordpress/2009/08/%E5%A4%8D%E9%80%89%E6%A1%86%E6%88%96%E5%8D%95%E9%80%89%E6%A1%86%E4%B8%8E%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6%E4%B8%8E%E4%B8%80/)  
 [css行高line-height的一些深入理解及应用](https://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/)  
 [display:inline-block/text-align:justify下列表的两端对齐布局](https://www.zhangxinxu.com/wordpress/2011/03/displayinline-blocktext-alignjustify%E4%B8%8B%E5%88%97%E8%A1%A8%E7%9A%84%E4%B8%A4%E7%AB%AF%E5%AF%B9%E9%BD%90%E5%B8%83%E5%B1%80/)  
-[去除inline-block元素间间距的N种方法](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)  
 [我对CSS vertical-align的一些理解与认识（一）](https://www.zhangxinxu.com/wordpress/2010/05/%E6%88%91%E5%AF%B9css-vertical-align%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3%E4%B8%8E%E8%AE%A4%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/)  
 [CSS vertical-align的深入理解(二)之text-top篇](https://www.zhangxinxu.com/wordpress/2010/06/css-vertical-align%E7%9A%84%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8Btext-top%E7%AF%87/)  
 [CSS深入理解vertical-align和line-height的基友关系](https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/)
