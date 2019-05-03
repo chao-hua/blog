@@ -2,7 +2,7 @@
 
 [[toc]]
 
-## TODO  
+## TODO
 
 ```css
 .justify {
