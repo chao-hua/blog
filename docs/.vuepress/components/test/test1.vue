@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-button">
+  <!-- <div class="demo-button"> -->
     <div>
       <dt-button>默认按钮</dt-button>
       <dt-button type="primary">主要按钮</dt-button>
@@ -8,7 +8,7 @@
       <dt-button type="warning">警告按钮</dt-button>
       <dt-button type="danger">危险按钮</dt-button>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

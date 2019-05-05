@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted () {
-    this.$emit('click', event)
+    // this.$emit('click', event)
   }
 }
 </script>

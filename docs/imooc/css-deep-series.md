@@ -30,13 +30,12 @@
 		* 不支持百分比宽度。
 		* 因此适用于一侧宽度固定的两栏等高布局。
 
-<Common-Democode title="基本用法" description="基本按钮用法">
+<demo title="基本用法" description="基本按钮用法">
   <template slot="html">
     <test-test1></test-test1>
-    <imooc-css-deep-border></imooc-css-deep-border>
   </template>
 
-```html
+```vue
   <div class="demo-button">
     <div>
       <dt-button>默认按钮</dt-button>
@@ -49,4 +48,4 @@
   </div>
 ```
 
-</Common-Democode>
+</demo>

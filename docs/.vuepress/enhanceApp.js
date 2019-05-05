@@ -1,8 +1,8 @@
 /**
  * 扩展 VuePress 应用
  */
-import Element from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import Element from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
 // import VueHighlightJS from 'vue-highlight.js';
 // import 'highlight.js/styles/atom-one-dark.css';
 
