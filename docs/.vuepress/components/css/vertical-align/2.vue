@@ -16,8 +16,7 @@
         <br />
         <p style="background-color: #ccc">
         <span style="display: inline-block; width: 150px; height: 150px; border: 1px solid #f00; background-color: #ccc;"></span>
-        <span style="display: inline-block; width: 150px; height: 150px; border: 1px solid #f00; background-color: #ccc;">x-baseline</span>
-            
+        <span style="display: inline-block; width: 150px; height: 150px; border: 1px solid #f00; background-color: #ccc;">x-baseline</span> 
         </p>
         <p>看到上面这个奇怪的现象了吗，之所以会这样是因为：<span style="color: #f00">一个inline-block元素，如果里面没有内容，那么其基线就是其底边缘；否则其基线就是最后一个元素的基线。</span>第一个方块的基线是底边，第二个方块的基线则是内部元素的基线，也就是x字母的底部，两者对齐！！</p>
         <br />
@@ -55,8 +54,6 @@
         <br />
         <p style="font-size: 14px;background-color: #ccc;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQCSURBVDhPrVF7TFNXHO4fc5FsQRYN0w5h7hHUbXGbY1LZCIbgBGHAIMzHNEPnRDcDZnMq4EAxPDYYWDPtFAq2GCoGa5nYYkF5CMoqpbS0llqgW4HespbHoOvrnnP3u3CzkLHx1758OTn3O9/33d+5l7UQDnW0vT3Q0uhDyP2IpucIuS/sQQGdcSwCh/Yja/Nyz6+5eEqEXa3YPUi5VZSzBU0Jke0Hp2EXnDo0cYx7IeBVUIEmJXisGBGn8Xg5NVVHTf8MK7bzsOUUJr5F1rMzqvfByWTmA9RpTQI5XotMqWCl8zO3Kdcvs1N0QhG2X8SWTDhF1qI/usP+2TKl3g8qGuOioT3IfBgTZ/CEgHI0Ux4t5TXSLY47UAqDIPMh2kMUgB9STB4wWOeDR7KQIW624hAmcvFEFcQoVw/dArPMNOLJaminCR5wmo9AisnbFLH2rvfQUJq3P153LUYliB2UpkzqS5lBnC2Q91j5oDyRJCurYk3SePQkAekifm99CbJ0xVD9CmQ6CJJRHGXrTETGZJowy4SA5mT13AhwOzSwAzgijwGC36XZClm6Ql/zNDmcg/rCvI+jkTHJ0pnYJ46wKD6hrz2aia1nIUyOnh64l9J3M9L+KAk8pD4a6cLJwf2QpSsUPz2DzUe96s32B+HCvQFXU1+sy3idXtNfpVvMR8ZVn5Z/yK49vBb0y3HPi9KCPNpIUrMZmY9Blq5oK13iGUgdfxhy8vK5283fwQE04uHjeOQEfSP4i6bPMJGPR7NB8ZpPlV0v51/7elqxEfaQpSvulSzpb0/aK+z4QDndLtsBb0D92xnOfZd5dGkiJXcFUR1TX/zII9RfQpau4OZv+1g8VDJM7uv58/vU9ZUH2Isz7+SBM3bym153Aq+rpiCIJElWVKnqRIfn4mO8q2HsQlpYW3W+vqPeYlTZftNTs/C6nfAI7JVXN5xLP7pzS2av87wWH7zjSMytdLlcrOMNRJWBLOh2x3MfZnGWZ2zwS3/bLyNkGfArDsO5x/S3lsFpbsza5OtjhSqSq3J9fqnV6XSyhPeHq5T2LNloBX+PYPeakvCVxaGr/osXtrKl2SE5FWXZcltho6FNa/V6vSyPx6MScYw3VroeBJjEnPKE1byogEuRgf/CbatF+9ZN3N/kVG4cuOHfxV9P5/+GJHuprYmNFC+YxRuu7AwG95WYNVe3v1wT+wqssAdFkvHOTFcY0rxrrvdvKX6WSc4HtKgrfdGjAHdPqJq/RZbFEex+rSxiFT8l+NaxTaabERAGGmrZd4uWMpmF0InelBUF9wn9UXcgzdkMlCJtKNAse6Odu0JZEcS4FwEUdfLWSfN8b+U8NUdpnk9Toa9OFMw4/mewWH8Bk4PTGjryAFcAAAAASUVORK5CYII=" alt="" style="vertical-align: -5px;">表情与文字放在一起的样子</p>
         <p>如果是整数值的话，发现也感觉不错，可以根据文字调节</p>
-        <br />
-        <br />
     </div>
 </template>
 <script>
