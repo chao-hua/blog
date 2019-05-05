@@ -32,7 +32,7 @@
 
 <demo title="基本用法" description="基本按钮用法">
   <template slot="html">
-    <test-test1></test-test1>
+    <imooc-css-deep-border></imooc-css-deep-border>
   </template>
 
 ```vue
