@@ -32,7 +32,7 @@
 
 <demo title="基本用法" description="基本按钮用法">
   <template slot="html">
-    <imooc-css-deep-border></imooc-css-deep-border>
+    <imooc-css-deep-series-border></imooc-css-deep-series-border>
   </template>
 
 ```vue
@@ -52,7 +52,7 @@
 
 <demo title="基本用法" description="基本按钮用法" column>
   <template slot="html">
-    <imooc-css-deep-border></imooc-css-deep-border>
+    <imooc-css-deep-series-border></imooc-css-deep-series-border>
   </template>
 
 ```vue

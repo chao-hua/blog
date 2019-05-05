@@ -11,7 +11,6 @@
 <script>
 import DtButton from '../../src/button.vue'
 export default {
-    name: 'buttonWrap',
     components: {
         DtButton
     }
