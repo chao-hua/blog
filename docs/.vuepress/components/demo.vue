@@ -4,7 +4,7 @@
             <h2>{{title}}</h2>
             <small>{{description}}</small>
         </div>
-        <div class="demo__body">
+        <div class="demo__body" :class="{'demo__body--column':column}">
             <div class="part">
                 <slot name="html"></slot>
             </div>
@@ -17,7 +17,18 @@
 <script>
 export default {
     name: 'Demo',
-    props: ['title', 'description'],
+    props: {
+        title: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        column: {
+            type: Boolean,
+            default: false,
+        }
+    },
     data() {
         return {
             isShow: false,
@@ -64,9 +75,24 @@ export default {
 
             pre {
                 padding: 20px 10px;
+                margin: 0;
             }
-            &+.part{
-              margin-left: 10px;
+
+            &+.part {
+                margin-left: 10px;
+            }
+        }
+
+        &.demo__body--column {
+            flex-direction: column;
+
+            .part {
+                width: 100%;
+
+                &+.part {
+                    margin-left: 0;
+                    margin-top: 10px;
+                }
             }
         }
     }
