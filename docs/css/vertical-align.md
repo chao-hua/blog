@@ -4,6 +4,30 @@
 
 ## 1.概念
 
+<demo column>
+  <template slot="html">
+    <css-vertical-align-2></css-vertical-align-2>
+  </template>
+
+```html
+<section style="font-size: 12px;">
+    <p>
+        <label for="checkbox1">checkbox1</label>
+        <input type="checkbox" name="checkbox" id="checkbox1">
+        <label for="checkbox2">checkbox2</label>
+        <input type="checkbox" name="checkbox" id="checkbox2">
+    </p>
+    <p>
+        <label for="male">Male</label>
+        <input type="radio" name="radio" id="male">
+        <label for="female">Female</label>
+        <input type="radio" name="radio" id="female">
+    </p>
+</section>
+```
+
+</demo>
+
 ## 2.运用
 
 ### 2.1 复选框、单选框与文字对齐问题
