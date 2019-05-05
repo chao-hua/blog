@@ -71,9 +71,11 @@ export default {
         padding: 10px;
 
         .part {
+            font-size: 14px;
             width: 50%;
 
             pre {
+                font-size: 16px;
                 padding: 20px 10px;
                 margin: 0;
             }

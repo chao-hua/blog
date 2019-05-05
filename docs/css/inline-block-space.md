@@ -2,13 +2,17 @@
 
 `inline-block` 水平呈现的元素间，由于换行、空格分隔的情况下会产生间距。  
 
+<demo>
+  <template slot="html">
+    <css-inline-block-space-1></css-inline-block-space-1>
+  </template>
+
 ```html
 <section>
     <style>
     .space a {
         display: inline-block;
-        padding: 5px 10px ;
-        background-color: #cad5eb;
+        padding: 5px 10px;
         border: solid 1px #ccc;
     }
     </style>
@@ -20,7 +24,9 @@
 </section>
 ```
 
-## 解决方法：
+</demo>
+
+## 解决方法
 
 - 移除空格
     + 代码可读性性差
