@@ -57,6 +57,7 @@ module.exports = {
                     'inline-block-space',
                     'vertical-align',
                     'justify',
+                    'ellipsis',
                 ],
             }],
             '/vue/': [{

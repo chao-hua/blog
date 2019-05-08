@@ -8,3 +8,4 @@ CSS 知识点总结，是对一些常用知识点的总结和归纳。
 - [去除 `inline-block` 元素间间距](/css/inline-block-space.md)
 - [`vertical-align`](/css/vertical-align.md)
 - [两端对齐](/css/justify.md)
+- [文字超出省略](/css/ellipsis.md)
