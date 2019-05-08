@@ -58,101 +58,56 @@
 </section>
 <section class="multiple" lang="zh-CN">
     <div>英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营，等待凯特王妃产子。
-    报道称，这些粉丝们身穿英国国旗式样的衣服，举着威廉王子夫妇的照片，在医院外表达着自己对于王妃即将产子的快乐心情。</div>
+        报道称，这些粉丝们身穿英国国旗式样的衣服，举着威廉王子夫妇的照片，在医院外表达着自己对于王妃即将产子的快乐心情。</div>
     <div>Some of the important features about Dark Mode addon are listed below.
-    This is followed by an overview about this addon.
-    This summary contains few words about the addon, its function and features.
-    Next is FAQ, this section is useful to get information about how this addon works in your browser.</div>
+        This is followed by an overview about this addon.
+        This summary contains few words about the addon, its function and features.
+        Next is FAQ, this section is useful to get information about how this addon works in your browser.</div>
 </section>
 <style>
-.single {
-    div {
-        margin: 10px 0;
-        border: 1px solid #3eaf7c;
-        width: 100px;
-        text-align: justify;
-        text-align-last: justify; /* 处理部分浏览器最后一行对齐 */
-        text-justify: inter-ideograph; /* 兼容 IE */
-        height: 22px; /* 处理部分浏览器最后一行对齐，引入新行后，隐藏最后一行 */
-        line-height: 22px; /* 处理部分浏览器最后一行对齐，引入新行后，隐藏最后一行 */
-    }
-    div:after { /* 处理部分浏览器最后一行对齐，引入新行 */
-        content: '';
-        display: inline-block;
-        width: 100%;
-    }
+.single div {
+    margin: 10px 0;
+    border: 1px solid #3eaf7c;
+    width: 100px;
+    text-align: justify;
+    text-align-last: justify; /* 处理部分浏览器最后一行对齐 */
+    text-justify: inter-ideograph; /* 兼容 IE */
+    height: 22px; /* 处理部分浏览器最后一行对齐，引入新行后，隐藏最后一行 */
+    line-height: 22px; /* 处理部分浏览器最后一行对齐，引入新行后，隐藏最后一行 */
 }
 
-.multiple {
-    div {
-        margin: 10px 0;
-        border: 1px solid #3eaf7c;
-        width: 400px;
-        text-align: justify;
-        text-align-last: justify;
-        text-justify: inter-ideograph;
-        /* word-break: break-all; 处理 FireFox 中文多行文本参差不齐问题，不推荐 */
-    }
+.single div:after { /* 处理部分浏览器最后一行对齐，引入新行 */
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+.multiple div {
+    margin: 10px 0;
+    border: 1px solid #3eaf7c;
+    width: 400px;
+    text-align: justify;
+    text-align-last: justify;
+    text-justify: inter-ideograph;
+    /* word-break: break-all; 处理 FireFox 中文多行文本参差不齐问题，不推荐 */
 }
 </style>
 ```
 
 </demo>
 
-## 2.应用
+## 2.应用 - 列表元素的两端对齐布局
 
-可以用于实现列表元素的两端对齐布局
+可以用于实现列表元素的两端对齐布局，但是最后一行一般需要左侧对齐的显示，且间隔需要和前面一样，可以补充一些修复元素来达到效果。
+
+<demo column>
+  <template slot="html">
+    <css-justify-2></css-justify-2>
+  </template>
 
 ```html
 <section>
-    <style>
-    .justify-list {
-        list-style: none;
-        text-align: justify;
-        text-align-last: justify;
-        text-justify: inter-ideograph;
-        font-size: 0;
-    }
-
-    .justify-list:after {
-        width: 100%;
-        height: 0;
-        margin: 0;
-        display: inline-block;
-        overflow: hidden;
-        content: '';
-    }
-
-    .justify-list li {
-        display: inline-block;
-        height: 100px;
-        width: 100px;
-        /*background-color: #3eaf7c;*/
-        border:solid 1px #3eaf7c;
-        margin: 10px 0;
-    }
-
-    .justify-list .justify-fix {
-        display: inline-block;
-        width: 100px;
-        height: 0;
-        overflow: hidden;
-    }
-    </style>
     <ul class="justify-list">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -162,8 +117,44 @@
         <li class="justify-fix"></li>
         <li class="justify-fix"></li>
     </ul>
+    <style>
+    .justify-list {
+        list-style: none;
+        text-align: justify;
+        text-align-last: justify;
+        text-justify: inter-ideograph;
+        font-size: 0;
+        border: solid 1px #3eaf7c;
+        padding: 0 10px;
+    }
+
+    .justify-list:after {
+        width: 100%;
+        height: 0;
+        display: inline-block;
+        overflow: hidden;
+        content: '';
+    }
+
+    .justify-list li {
+        display: inline-block;
+        height: 50px;
+        width: 200px;
+        background-color: #3eaf7c;
+        margin: 10px 0;
+    }
+
+    .justify-list .justify-fix {
+        display: inline-block;
+        width: 200px;
+        height: 0;
+        overflow: hidden;
+    }
+    </style>
 </section>
 ```
+
+</demo>
 
 
 ***
