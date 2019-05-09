@@ -158,6 +158,17 @@
 
 </demo>
 
+## 3.工具类
+
+```scss
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+}
+```
+
 ***
 
 参考：  
