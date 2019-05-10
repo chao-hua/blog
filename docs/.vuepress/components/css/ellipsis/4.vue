@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="line-camp">
+        <div class="line-clamp">
             <span>英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营，等待凯特王妃产子。英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营等待凯特王妃产子。</span>
         </div>
     </section>
@@ -11,7 +11,7 @@ export default {}
 <style lang="scss" scoped>
 @import '../../src/style/variables.scss';
 
-.line-camp {
+.line-clamp {
     width: 400px;
     border: solid 1px #3eaf7c;
 
@@ -21,7 +21,7 @@ export default {}
     max-height: 40px;
 }
 
-.line-camp:after {
+.line-clamp:after {
     content: "...";
     position: absolute;
     bottom: 0;

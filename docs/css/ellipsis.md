@@ -97,7 +97,7 @@
 ```html
 <section>
     <style>
-    .line-camp {
+    .line-clamp {
         text-overflow: -o-ellipsis-lastline; /* 兼容 opera */
         overflow: hidden;
         text-overflow: ellipsis;
@@ -111,7 +111,7 @@
         border: solid 1px #3eaf7c;
     }
     </style>
-    <div class="line-camp">
+    <div class="line-clamp">
         <span>英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营，等待凯特王妃产子。英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营，等待凯特王妃产子。</span>
     </div>
 </section>
@@ -131,7 +131,7 @@
 ```html
 <section>
     <style>
-    .line-camp {
+    .line-clamp {
         width: 400px;
         border: solid 1px #3eaf7c;
 
@@ -141,7 +141,7 @@
         max-height: 40px;
     }
 
-    .line-camp:after {
+    .line-clamp:after {
         content: "...";
         position: absolute;
         bottom: 0;
@@ -150,7 +150,7 @@
         background: linear-gradient(to right, transparent, #fff 100%);
     }
     </style>
-    <div class="line-camp">
+    <div class="line-clamp">
         <span>英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营，等待凯特王妃产子。英国王室的拥趸正在伦敦圣玛丽医院林都院区外扎营，等待凯特王妃产子。</span>
     </div>
 </section>
@@ -166,6 +166,31 @@
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   overflow: hidden;
+}
+
+@mixin line-clamp($line:2) {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+}
+
+@mixin line-clamp-fix() {
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 20px;
+    background: linear-gradient(to right, transparent, #fff 100%);
+  }
 }
 ```
 
