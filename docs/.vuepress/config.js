@@ -5,6 +5,7 @@ module.exports = {
     port: 8080, // dev模式的端口
     dest: 'dist',
     themeConfig: { //主题配置
+        lastUpdated: '更新时间',
         // 导航栏
         nav: [/*{
                 text: '首页',
