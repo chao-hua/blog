@@ -2,13 +2,11 @@
 
 1.can you tell me about yourself(introduction).
 
-My full name is hc, and I am 30 years old.Ever since 6 years agao from the university(my major is communication engineering), I’ve put my time into getting different experience as a software engineer.I have worked for two companies so far.
-The first one is Samsung data system (Xi'an) Co., Ltd(Limited company), a software service company of the Samsung group. After graduation i worked there as a software engineer and focus on the website development.In some projects i was responsible for overall design and requirements analysis; developing the website.
-3 years later, I came to my present company, Dasdao Commodity Exchange Co., Ltd, a internet finance platform of Maike Group which is the largest copper trader of China.In the company my title is front-end team's leader.My main job is build the front-end project framework,control the front-end project schedule with agile development.Finish some User Stories. 
+My full name is hc, and I am 30 years old. I have over 6 years of experience in front-end development. Ever since 6 years agao from the university,i have worked for two companies.
+The first one is Samsung data system (Xi'an) Co., Ltd(Limited company), a software service company of the Samsung group. After graduation i worked there as a software engineer and focus on the website development.
+3 years later, I came to my present company, Dasdao Commodity Exchange Co., Ltd, a BtoB internet platform of Maike Group which is the largest copper trader of China.In the company my title is front-end team leader.My main job is to build the front-end project framework,control the front-end project schedule with agile development，make public buiness components and do some user stories.
 
-Responsible for overall design and building the front-end project framework; Control the project schedule; Public business component coding; finish some user stories. 
-
-Team members always say that i`m a easygoing and warmhearted man.l'd like to help others. Customer and our manager speak highly of our product and our efforts.
+Team members always say that i`m a easygoing and warmhearted man.so i believe i can inegrate into the new enviroment quickly.
 
 1.Proficient in HTML, familiar with HTML5's new features, understand semantic HTML, canvas.
 2.Proficient in CSS, familiar with CSS3's new features and responsive layout, understand Sass.
@@ -19,17 +17,32 @@ Team members always say that i`m a easygoing and warmhearted man.l'd like to hel
 7.Familiar with Spring, Struts2, ibatis, Hibernate and other open source framework for rapid integration development.
 8.Familiar with Oracle, MySQL.
 
-
-1.can you tell me about yourself(introduction).
 2.what do you know about our company?
+
+HSBC(Hongkong and Shanghai Banking Corporation) is a very famous internationaln commercial bank.Your company has a strong develope team.Some of my firends which are working here peak highly of your company. There are outstanding management team, experienced technical team, and rich business lines.
+
 3.why you interented in this job?
-4.why did you leave your last job?
-5.why should we have you?
 
+I believe I am a good fit for your company as the font-end engineer position
 
+4.Advantage：
+    easy-going
+    warmhearted
+    High attention to detail
+    responsible
+Disadvantage
+    My English is poor
+    I am not a good public speaker
 
-unitary in business,
+5.why did you leave your last job?
 
+unitary in business
+
+6.why should we have you?
+
+7.Project experience
+
+I took the lead in offshore commodity exchange project which was very successful.Customer and our manager speak highly of our product and our efforts.
 
 A: Good morning. Are you Mr. Liu, the personnel manager?
 

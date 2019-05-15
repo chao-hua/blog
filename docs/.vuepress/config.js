@@ -92,6 +92,9 @@ module.exports = {
                     '',
                     'cross',
                     'axios',
+                    'summary',
+                    'interview',
+                    'interview-en',
                 ],
             }],
         }
