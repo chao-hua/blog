@@ -1,5 +1,6 @@
 # interview 
 
+
 1.can you tell me about yourself(introduction).
 
 My full name is hc, and I am 30 years old. I have over 6 years of experience in front-end development. Ever since 6 years agao from the university,i have worked for two companies.
