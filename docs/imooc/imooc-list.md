@@ -86,3 +86,4 @@
 - [微信小程序商城构建全栈应用](https://coding.imooc.com/class/97.html) 23h
 - [纯正商业级应用-微信小程序开发实战](https://coding.imooc.com/class/251.html) 18h
 - [让你页面速度飞起来 Web 前端性能优化](https://coding.imooc.com/class/130.html) 12h
+- [Node.js 入门到企业 Web 开发中的应用](https://coding.imooc.com/class/146.html)

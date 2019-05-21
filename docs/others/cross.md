@@ -74,7 +74,7 @@
     + CORS 需要浏览器支持。目前，所有浏览器都支持该功能，IE 浏览器 ≥IE10。
     + CORS 需要服务器同时配置。
 - 原理
-    + 浏览器将 CORS 请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。
+    + 浏览器将 CORS 请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request)。
     + 对于简单请求，浏览器直接发出 CORS 请求，自动在头信息之中，添加一个 `Origin` 字段，用来说明请求的来源（协议 + 域名 + 端口），服务器根据这个值，做出处理。浏览器再根据服务器返回头信息处理：
         * `Access-Control-Allow-Origin` 关键字段 没有这个值，浏览器就报错，说明服务制不支持本次跨域请求。有这个值（请求时 `Origin` 或者 `*）。
         * `Access-Control-Allow-Credentials` 可选 布尔值,是否允许浏览器发送 Cookie，默认不发送。发送请求时，需要设置 `withCredentials` 为 `true`。
@@ -100,6 +100,21 @@
     + 生产：nginx 服务器配置反向代理接口
 
 ***
+
+注：  
+
+简单请求：只要同时满足以下两大条件，就属于简单请求  
+
+- 请求方法是以下三种方法之一：
+    + HEAD
+    + GET
+    + POST
+- HTTP的头信息不超出以下几种字段：
+    + Accept
+    + Accept-Language
+    + Content-Language
+    + Last-Event-ID
+    + Content-Type：只限于三个值 `application/x-www-form-urlencoded`、`multipart/form-data`、`text/plain`
 
 参考：  
 [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)  
