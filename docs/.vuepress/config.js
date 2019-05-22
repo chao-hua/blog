@@ -67,6 +67,7 @@ module.exports = {
                 children: [
                     '',
                     'hook',
+                    'components-communication',
                     'source-analyse-1',
                     'source-analyse-2',
                     'source-analyse-3',
