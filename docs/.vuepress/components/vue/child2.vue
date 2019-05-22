@@ -11,6 +11,7 @@
 import child3 from "./child3";
 export default {
   props: ["b1"],
+  inject: ['name'],
   components: {
     child3
   },
