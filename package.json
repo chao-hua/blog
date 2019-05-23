@@ -13,10 +13,7 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "element-ui": "^2.4.4",
-    "vue": "^2.5.16",
-    "highlight.js": "^9.13.1",
-    "vue-highlight.js": "^2.2.0",
+    "vue": "^2.6.0",
     "sass-loader": "^7.1.0",
     "node-sass": "^4.11.0"
   }

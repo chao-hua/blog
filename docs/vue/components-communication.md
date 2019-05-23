@@ -4,7 +4,7 @@
 
 ## 1.`props`
 ## 2.`$emit`
-## 3.EventBus
+## 3.eventBus
 ## 4.Vuex
 ## 5.`$attrs` 和 `$listeners`
 ## 6.`provide` 和 `inject`
