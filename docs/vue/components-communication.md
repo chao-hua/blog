@@ -63,6 +63,8 @@ Vue2.4 版本引入的新方式：
   </template>
 </demo>
 
+
+
 ## 6.`provide` 和 `inject`
 ## 7.`$refs`, `$parent`, `$children`
 ## 8.在slot中 通过插槽作用域v-slot: child="childsay"  获取子组件传值
