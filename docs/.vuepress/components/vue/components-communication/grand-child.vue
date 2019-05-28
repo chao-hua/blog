@@ -31,8 +31,8 @@ export default {
         },
         handleInput(e) {
             this.message = e.target.value;
-            // this.$emit("inputFromGrandChild", this.message);
-            this.$listeners.inputFromGrandChild(this.message);
+            this.$emit("inputFromGrandChild", this.message);
+            // this.$listeners.inputFromGrandChild(this.message);
         }
     }
 };

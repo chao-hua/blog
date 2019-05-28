@@ -23,8 +23,6 @@
 通过一个空的 Vue 实例作为中央事件总线，用它来触发事件和监听事件，可以实现任意组件间通讯（父子、兄弟、跨级）  
 缺点：太多的事件会造成混乱，因为触发和监听分散在各种组件中。
 
-
-
 ```js
 // eventBus.js 中央事件总线
 import Vue from 'vue'
@@ -61,13 +59,127 @@ Vue2.4 版本引入的新方式：
   <template slot="html">
     <vue-components-communication-parent></vue-components-communication-parent>
   </template>
+
+```html
+// parent.vue
+<template>
+    <div class="parent-wrap">
+        <h3>parent</h3>
+        <p>我设置了 3 个 attr：a(A), b(B), c(C)</p>
+        <p>从 grand-child 传递来的输入值: {{messageFromGrandChild}}</p>
+        <child :a="a" :b="b" :c="c" @clickFromGrandChild="handleClickFromGrandChild" @inputFromGrandChild="handleInputFromGrandChild"></child>
+    </div>
+    </div>
+</template>
+<script>
+import child from "./child.vue";
+export default {
+    components: { child },
+    data() {
+        return {
+            a: "A",
+            b: "B",
+            c: "C",
+            messageFromGrandChild: "",
+        };
+    },
+    methods: {
+        handleClickFromGrandChild() {
+            console.log("我是【parent】，这是从【grand-child】组件中触发【click】事件。");
+        },
+        handleInputFromGrandChild(msg) {
+            this.messageFromGrandChild = msg;
+            console.log("我是【parent】，这是从【grand-child】组件中触发【input】事件。");
+        },
+    }
+};
+</script>
+// child.vue
+<template>
+    <div class="child-wrap">
+        <h3>child</h3>
+        <p>props 是 a: {{a}}</p>
+        <p>attrs 是: {{$attrs}}</p>
+        <grand-child v-bind="[$attrs]" v-on="$listeners"></grand-child>
+    </div>
+</template>
+<script>
+import GrandChild from "./grand-child.vue";
+export default {
+    components: { GrandChild },
+    props: ["a"],
+    inheritAttrs: false,
+    created() {
+        console.log("【child】 $attrs: ", this.$attrs);
+    },
+    mounted() {
+        console.log("【child】 $listeners: ", this.$listeners);
+    },
+};
+</script>
+// grand-child.vue
+<template>
+    <div class="grand-child-wrap">
+        <h3>grand-child</h3>
+        <p>props 是 b: {{b}}</p>
+        <p>attrs 是: {{$attrs}}</p>
+        <hr>
+        <h4>1.click事件触发，传到顶级。</h4>
+        <button @click="btnClick">按钮</button>
+        <h4>2.input事件触发，传到顶级。</h4>
+        <input type="text" @input="handleInput">&nbsp;&nbsp;&nbsp;<span>输入的内容是：{{message}}</span>
+    </div>
+</template>
+<script>
+export default {
+    props: ["b"],
+    inheritAttrs: false,
+    data() {
+        return { message: "" };
+    },
+    created() {
+        console.log("【grand-child】 $attrs: ", this.$attrs);
+    },
+    mounted() {
+        console.log("【grand-child】 $listeners: ", this.$listeners);
+    },
+    methods: {
+        btnClick() {
+            // this.$emit("clickFromGrandChild");
+            this.$listeners.clickFromGrandChild();
+        },
+        handleInput(e) {
+            this.message = e.target.value;
+            this.$emit("inputFromGrandChild", this.message);
+            // this.$listeners.inputFromGrandChild(this.message);
+        }
+    }
+};
+</script>
+```
+
 </demo>
 
-
-
 ## 6.`provide` 和 `inject`
-## 7.`$refs`, `$parent`, `$children`
-## 8.在slot中 通过插槽作用域v-slot: child="childsay"  获取子组件传值
+
+## 7.`$refs`, `$parent`, `$children`, `$root`
+
+可以直接访问组件示例，然后直接调用组件的方法和访问数据。
+
+- `$refs`：直接访问子组件实例，`<child ref="childCom"></child> this.$refs.childCom`。`$refs`  只会在组件渲染完成之后生效，并且它们不是响应式的，避免在模板或计算属性中访问 `$refs`。
+- `$parent`：直接访问父组件实例。
+- `$children`：当前实例的直接子组件数组。
+- `$root`：当前组件树的根 Vue 实例。
+
+## 8.作用域插槽
+
+父组件的插槽中，通过作用域插槽和插槽 prop，可以访问子组件中的数据。
+
+<demo>
+  <template slot="html">
+    <vue-slot-1></vue-slot-1>
+  </template>
+</demo>
 
 ***
 

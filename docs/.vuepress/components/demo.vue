@@ -66,7 +66,7 @@ export default {
         border-radius: 4px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         box-sizing: border-box;
         padding: 10px;
 
