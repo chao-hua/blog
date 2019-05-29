@@ -8,7 +8,7 @@
     </child>
 </template>
 <script>
-import child from './2.vue'
+import child from './slot2.vue'
 export default {
     components: {
         child

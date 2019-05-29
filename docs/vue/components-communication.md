@@ -60,7 +60,7 @@ Vue2.4 版本引入的新方式：
     <vue-components-communication-parent></vue-components-communication-parent>
   </template>
 
-```html
+```vue
 // parent.vue
 <template>
     <div class="parent-wrap">
@@ -175,16 +175,60 @@ export default {
 
 父组件的插槽中，通过作用域插槽和插槽 prop，可以访问子组件中的数据。
 
+注：Vue 2.6 起 `v-slot` 引入，替代 `slot` 和 `slot-scope`。  
+`<template slot="default" slot-scope="slotProps">` => `<template v-slot:default v-slot="slotProps">`
+
 <demo>
   <template slot="html">
-    <vue-slot-1></vue-slot-1>
+    <vue-components-communication-slot1></vue-components-communication-slot1>
   </template>
+
+```vue
+// parent.vue
+<template>
+    <child>
+        <template v-slot="slotProps">
+            <p>{{slotProps.childData.data1}}</p>
+            <p>{{slotProps.childData.data2}}</p>
+            <p>{{slotProps.childData.data3}}</p>
+        </template>
+    </child>
+</template>
+<script>
+import child from './child.vue'
+export default {
+    components: {
+        child
+    }
+};
+</script>
+// child.vue
+<template>
+    <div class="child-box">
+        <p>-- Child 开始 --</p>
+        <slot :childData="child"></slot>
+        <p>-- Child 结束 --</p>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            child: {
+                data1: '子组件数据1',
+                data2: '子组件数据2',
+                data3: '子组件数据3',
+            }
+        };
+    }
+};
+</script>
+```
+
 </demo>
 
 ***
 
 参考：  
-[Vue中的$attrs及$listeners属性, Vue2.4组件间通信新姿势](https://blog.csdn.net/ForMyQianDuan/article/details/82784915)  
 [vue组件间通信六种方式（完整版）](https://juejin.im/post/5cde0b43f265da03867e78d3)  
-[vue2.x 组件通信的 6 种方式](https://github.com/dirkhe1051931999/hjBlog/blob/master/blog-vue/lessons/06.md)  
-[vue组件间通信](https://github.com/ljianshu/Blog/tree/master/vue2.0%E5%AD%A6%E4%B9%A0/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1)
+[Vue中的$attrs及$listeners属性, Vue2.4组件间通信新姿势](https://blog.csdn.net/ForMyQianDuan/article/details/82784915)  

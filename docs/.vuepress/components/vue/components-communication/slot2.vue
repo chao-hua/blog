@@ -1,8 +1,8 @@
 <template>
     <div class="child-box">
-        <p>Child 开始</p>
+        <p>-- Child 开始 --</p>
         <slot :childData="child"></slot>
-        <p>Child 结束</p>
+        <p>-- Child 结束 --</p>
     </div>
 </template>
 <script>
