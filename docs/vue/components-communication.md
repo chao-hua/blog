@@ -166,6 +166,10 @@ export default {
 
 Vue 2.2 版本引入的新方式：  
 
+- Vue 2.2.1 之后，注入的值会在 `props` 和 `data` 中使用。
+- Vue 2.5 之后，注入可以通过设置默认值使其变成可选项。
+- provide 和 inject 绑定并不是可响应的。当你传入了一个可监听的对象，那么其对象的属性还是可响应的。
+
 <demo>
   <template slot="html">
     <vue-components-communication-p1></vue-components-communication-p1>
