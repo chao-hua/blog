@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
         <h3 :style="{ color: theme.color }">D 结点</h3>
-        <button @click="handleClick">改变color为green</button>
+        <button @click="handleClick">改变 color 为 green</button>
     </div>
 </template>
 <script>

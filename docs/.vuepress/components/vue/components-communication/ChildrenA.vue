@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
         <h3>A 结点</h3>
-        <button @click="() => changeColor()" style="margin-bottom:10px;">改变color</button>
+        <button @click="() => changeColor()" style="margin-bottom:10px;">改变 color</button>
         <ChildrenB />
         <ChildrenC />
     </div>
