@@ -60,7 +60,7 @@ Vue 2.4 版本引入的新方式：
     <vue-components-communication-parent></vue-components-communication-parent>
   </template>
 
-```vue
+```html
 // parent.vue
 <template>
     <div class="parent-wrap">
@@ -174,6 +174,159 @@ Vue 2.2 版本引入的新方式：
   <template slot="html">
     <vue-components-communication-p1></vue-components-communication-p1>
   </template>
+
+```html
+// parent.vue
+<template>
+    <ChildrenA />
+</template>
+<script>
+import ChildrenA from "./ChildrenA";
+export default {
+    components: {
+        ChildrenA
+    },
+};
+</script>
+// ChildrenA.vue
+<template>
+    <div class="wrap">
+        <h3>A 结点</h3>
+        <button @click="() => changeColor()" style="margin-bottom:10px;">改变color</button>
+        <ChildrenB />
+        <ChildrenC />
+    </div>
+</template>
+<script>
+import Vue from "vue";
+import ChildrenB from "./ChildrenB";
+import ChildrenC from "./ChildrenC";
+export default {
+    components: {
+        ChildrenB,
+        ChildrenC
+    },
+    data() {
+        return {
+            color: "blue"
+        };
+    },
+    // 双向响应
+    provide() {
+        return {
+            theme: this
+        };
+    },
+    // 使用2.6最新API Vue.observable 优化响应式 provide ，单项响应：祖先=》子孙
+    /*provide() {
+        this.theme = Vue.observable({
+            color: "blue"
+        });
+        return {
+            theme: this.theme
+        };
+    },*/
+    methods: {
+        changeColor(color) {
+            if (color) {
+                this.color = color;
+            } else {
+                this.color = this.color === "blue" ? "red" : "blue";
+            }
+        }
+    }
+};
+</script>
+// ChildrenB.vue
+<template>
+    <div class="wrap">
+        <h3>B 结点</h3>
+        <ChildrenD />
+        <ChildrenE />
+    </div>
+</template>
+<script>
+import ChildrenD from "./ChildrenD";
+import ChildrenE from "./ChildrenE";
+export default {
+    components: {
+        ChildrenD,
+        ChildrenE
+    }
+};
+</script>
+// ChildrenC.vue
+<template>
+    <div class="wrap">
+        <h3>C 结点</h3>
+        <ChildrenF />
+    </div>
+</template>
+<script>
+import ChildrenF from "./ChildrenF";
+export default {
+    components: {
+        ChildrenF
+    }
+};
+</script>
+// ChildrenD.vue
+<template>
+    <div class="wrap">
+        <h3 :style="{ color: theme.color }">D 结点</h3>
+        <button @click="handleClick">改变color为green</button>
+    </div>
+</template>
+<script>
+export default {
+    inject: {
+        theme: {
+            default: () => ({})
+        }
+    },
+    methods: {
+        handleClick() {
+            if (this.theme.changeColor) {
+                this.theme.changeColor("green");
+            }
+        }
+    }
+};
+</script>
+// ChildrenE.vue
+<template>
+    <div class="wrap">
+        <h3 :style="{ color: theme1.color }">E 结点</h3>
+    </div>
+</template>
+<script>
+export default {
+    inject: {
+        theme1: {
+            from: "theme",
+            default: () => ({})
+        }
+    }
+};
+</script>
+// ChildrenF.vue
+<template functional>
+    <div class="wrap">
+        <h3 :style="{ color: injections.theme.color }">F 结点</h3>
+    </div>
+</template>
+<script>
+export default {
+    inject: {
+        theme: {
+            //函数式组件取值不一样
+            default: () => ({})
+        }
+    }
+};
+</script>
+```
+
 </demo>
 
 ## 7.`$refs`, `$parent`, `$children`, `$root`
@@ -197,7 +350,7 @@ Vue 2.2 版本引入的新方式：
     <vue-components-communication-slot1></vue-components-communication-slot1>
   </template>
 
-```vue
+```html
 // parent.vue
 <template>
     <child>

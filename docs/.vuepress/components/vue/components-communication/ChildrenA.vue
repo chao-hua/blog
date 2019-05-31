@@ -1,11 +1,9 @@
 <template>
-    <div>
-        <div>
-            <h1>A 结点</h1>
-            <button @click="() => changeColor()">改变color</button>
-            <ChildrenB />
-            <ChildrenC />
-        </div>
+    <div class="wrap">
+        <h3>A 结点</h3>
+        <button @click="() => changeColor()" style="margin-bottom:10px;">改变color</button>
+        <ChildrenB />
+        <ChildrenC />
     </div>
 </template>
 <script>
@@ -22,10 +20,11 @@ export default {
             color: "blue"
         };
     },
+    //绑定并不是可响应的
     // provide() {
     //   return {
     //     theme: {
-    //       color: this.color //绑定并不是可响应的
+    //       color: this.color
     //     }
     //   };
     // },
@@ -51,9 +50,9 @@ export default {
             } else {
                 this.color = this.color === "blue" ? "red" : "blue";
             }
-            console.log(this.color);
         }
     }
 };
 </script>
-<style scoped></style>
+<style scoped lang="scss">
+</style>
