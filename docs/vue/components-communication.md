@@ -319,7 +319,7 @@ export default {
 export default {
     inject: {
         theme: {
-            //函数式组件取值不一样
+            // 函数式组件取值不一样，注意 template 上的标识 functional
             default: () => ({})
         }
     }
