@@ -15,6 +15,3 @@ export default {
     }
 };
 </script>
-<style scoped lang="scss" rel="stylesheet/scss">
-@import '../../src/style/variables.scss';
-</style>
