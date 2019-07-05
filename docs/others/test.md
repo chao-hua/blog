@@ -16,7 +16,7 @@
 ## 代码覆盖率
 
 - [codecov](https://docs.codecov.io/docs) 在线持续集成代码测试覆盖率工具
-- [istanbul](https://istanbul.js.org/) js 代码覆盖率测试工具 [教程](http://www.ruanyifeng.com/blog/2015/06/istanbul.html) 
+- [istanbul](https://istanbul.js.org/) js 代码覆盖率测试工具 [教程](http://www.ruanyifeng.com/blog/2015/06/istanbul.html)
 
 ## 性能测试
 
