@@ -27,4 +27,3 @@
 
 - [前端测试框架对比(js单元测试框架对比)](https://www.cnblogs.com/lihuanqing/p/8533552.html)
 - [JavaScript 单元测试框架：Jasmine, Mocha, AVA, Tape 和 Jest 的比较](https://juejin.im/post/5acc721a6fb9a028b77b23c9)
-- [2018年JavaScript测试方案一览](https://www.jianshu.com/p/fe990316120c?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)  
