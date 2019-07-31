@@ -58,7 +58,7 @@ foo.doSomethings();
 
 对 constructor(静态部分) 进行类型检查：TODO
 
-```
+```js
 interface ClockConstructor {
     new (hour: number, minute: number): ClockInterface;
 }
@@ -112,7 +112,7 @@ square.penWidth = 5.0;
 
 一个对象可以同时做为函数和对象使用，并带有额外的属性,在使用JavaScript第三方库的时候，你可能需要像上面那样去完整地定义类型:
 
-```
+```js
 interface Counter {
     (start: number): string;
     interval: number;
@@ -173,7 +173,7 @@ class Image implements SelectableControl {
 
 我们可以直接在构造函数中，使用修饰符 + 参数的形式，让我们方便的再一个地方定义并初始化一个成员。注意，这时 `public` 不能省略。
 
-```
+```js
 class Foo {
   prop1: string; // 省略 public
   private   prop2: string;
@@ -219,7 +219,7 @@ class FooSimple {
 - 抽象类中的抽象方法不包含具体实现并且必须在派生类中实现。
 - 不同于接口，抽象类可以包含成员的实现细节。
 
-```
+```js
 abstract class Department {
     constructor(public name: string) {
     }
@@ -260,7 +260,7 @@ department.generateReports(); // 错误: 方法在声明的抽象类中不存在
 - 可选参数
 - 剩余参数
 
-```
+```js
 function test(prop1: string, prop2: string = "prop2", prop3?: string): string {
   return prop1 + " " + prop2 + (prop3 ? " " + prop3 : "");
 }
@@ -442,7 +442,7 @@ p = new Person(); // OK, because of structural typing
 
 ### 7.1 交叉类型（Intersection Types）=》 &
 
-```
+```js
 function extend<T, U>(first: T, second: U): T & U {
   let result = <T & U>{};
   for (let id in first) {
@@ -476,8 +476,148 @@ jim.log(); // do log
 
 联合类型表示一个值可以是几种类型之一, 我们用竖线 `|` 分隔每个类型
 
-```
+```js
 function test(a: string, b: string | number): string | number {
   return b;
 }
 ```
+
+### 7.3 类型谓词 =》 parameterName is Type TODO
+
+```js
+function isNumber(x: any): x is number {
+  return typeof x === "number";
+}
+```
+
+### 7.4 类型别名 =》 type typeName TODO
+
+- 起别名不会新建一个类型,它创建了一个新名字来引用那个类型。
+- 类型别名不能出现在声明右侧的任何地方。
+- `type NewStr = string;`
+
+### 7.5 字符串字面量类型
+
+字符串字面量类型允许你指定字符串必须的固定值。结合：联合类型、类型保护、类型别名，就可以实现类似枚举类型的字符串。
+
+```js
+type Input = "input1" | "input2" | "input3";
+
+function checkInput(input: Input): void {
+  console.log(input);
+}
+
+checkInput("input1");
+checkInput("input2");
+checkInput("input0"); // error
+```
+
+### 7.6 可辨识联合(Discriminated Unions)
+
+你可以合并单例类型，联合类型，类型保护和类型别名来创建一个叫做可辨识联合的高级模式，它也称做标签联合或代数数据类型。
+
+```js
+interface Square {
+  kind: "square";
+  size: number;
+}
+interface Rectangle {
+  kind: "rectangle";
+  width: number;
+  height: number;
+}
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+type Shape = Square | Rectangle | Circle;
+
+function area(s: Shape) {
+  switch (s.kind) {
+    case "square":
+      return s.size * s.size;
+    case "rectangle":
+      return s.height * s.width;
+    case "circle":
+      return Math.PI * s.radius ** 2;
+  }
+}
+```
+
+这就是所谓的可辨识联合，其中 `kind` 属性称做可辨识的特征或标签，其它的属性则特定于各个接口，然后通过类型别名来联合。
+
+这里引出一个问题：**完整性检查**，即有没有完全覆盖联合。继续这个例子，我们新增一个 `interface`，希望能够通过错误来提示我们更新 `area` 方法，现在有两种方式：
+
+- 启用 `--strictNullChecks` 并且指定一个返回值类型。`switch` 没有包涵所有情况时，TypeScript 认为这个函数有时候会返回 `undefined`，即返回值类型为 `number | undefined`，这样就与 `number` 不一致会报错。这种方式缺点：错误提示不明确；历史代码不友好。
+
+```js
+function area(s: Shape): number{ // error: Function lacks ending return statement and return type does not include 'undefined'
+  switch (s.kind) {
+    case "square":
+      return s.size * s.size;
+    case "rectangle":
+      return s.height * s.width;
+    case "circle":
+      return Math.PI * s.radius ** 2;
+  }
+}
+```
+
+- 使用 `never` 类型，编译器用它来进行完整性检查。
+
+```js
+function assertNever(x: never): never {
+  throw new Error("Unexpected object: " + x);
+}
+
+function area(s: Shape) {
+  switch (s.kind) {
+    case "square":
+      return s.size * s.size;
+    case "rectangle":
+      return s.height * s.width;
+    case "circle":
+      return Math.PI * s.radius ** 2;
+    default:
+      return assertNever(s); // error: Argument of type 'Triangle' is not assignable to parameter of type 'never'
+  }
+}
+```
+
+### 7.7 多态的 `this`(F-bounded)
+
+```js
+class BasicCalculator {
+  public constructor(protected value: number = 0) {}
+  public currentValue(): number {
+    return this.value;
+  }
+  public add(operand: number): this {
+    this.value += operand;
+    return this;
+  }
+  public multiply(operand: number): this {
+    this.value *= operand;
+    return this;
+  }
+}
+
+class ScientificCalculator extends BasicCalculator {
+  public constructor(value = 0) { // 注意 protected 类型元素子类的使用
+    super(value);
+  }
+  public sin() {
+    this.value = Math.sin(this.value);
+    return this;
+  }
+}
+
+let v = new ScientificCalculator(2)
+  .multiply(10)
+  .sin()
+  .add(1)
+  .currentValue();
+```
+
+### 7.8 索引类型(Index types) TODO
