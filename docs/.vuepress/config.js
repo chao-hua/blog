@@ -97,6 +97,7 @@ module.exports = {
                     'summary',
                     'interview',
                     'interview-en',
+                    'typescript'
                 ],
             }],
         }

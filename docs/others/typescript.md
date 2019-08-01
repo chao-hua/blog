@@ -1,9 +1,12 @@
+# TypeSrcipt
+
+[[toc]]
 
 ## 1.interface
 
 ### 1.1 对象类型：描述普通对象
 
-```js
+```typescript
 interface Foo {
   x: number;
   readonly y: number;
@@ -21,7 +24,7 @@ let foo: Foo = { x: 1, y: 2, text: "text" };
 
 ### 1.2 函数类型：描述函数
 
-```js
+```typescript
 interface FooFun {
   (source: string, substr: string): boolean;
 }
@@ -35,7 +38,7 @@ let fooFunction: FooFun = (src, sub) => {
 
 在接口中描述，在类中实现
 
-```js
+```typescript
 interface FooInterface {
   props: string;
   doSomethings(): void;
@@ -58,7 +61,7 @@ foo.doSomethings();
 
 对 constructor(静态部分) 进行类型检查：TODO
 
-```js
+```typescript
 interface ClockConstructor {
     new (hour: number, minute: number): ClockInterface;
 }
@@ -91,7 +94,7 @@ let analog = createClock(AnalogClock, 7, 32);
 
 一个接口可以继承多个接口，创建出多个接口的合成接口
 
-```js
+```typescript
 interface Shape {
     color: string;
 }
@@ -112,7 +115,7 @@ square.penWidth = 5.0;
 
 一个对象可以同时做为函数和对象使用，并带有额外的属性,在使用JavaScript第三方库的时候，你可能需要像上面那样去完整地定义类型:
 
-```js
+```typescript
 interface Counter {
     (start: number): string;
     interval: number;
@@ -134,7 +137,7 @@ c.interval = 5.0;
 
 当接口继承了一个类类型时，它会继承类的成员但不包括其实现。就好像接口声明了所有类中存在的成员，但并没有提供具体实现一样。 接口同样会继承到类的private和protected成员。 这意味着当你创建了一个接口继承了一个拥有私有或受保护的成员的类时，这个接口类型只能被这个类或其子类所实现（implement）。
 
-```js
+```typescript
 class Control {
     private state: any;
 }
@@ -173,7 +176,7 @@ class Image implements SelectableControl {
 
 我们可以直接在构造函数中，使用修饰符 + 参数的形式，让我们方便的再一个地方定义并初始化一个成员。注意，这时 `public` 不能省略。
 
-```js
+```typescript
 class Foo {
   prop1: string; // 省略 public
   private   prop2: string;
@@ -219,7 +222,7 @@ class FooSimple {
 - 抽象类中的抽象方法不包含具体实现并且必须在派生类中实现。
 - 不同于接口，抽象类可以包含成员的实现细节。
 
-```js
+```typescript
 abstract class Department {
     constructor(public name: string) {
     }
@@ -260,7 +263,7 @@ department.generateReports(); // 错误: 方法在声明的抽象类中不存在
 - 可选参数
 - 剩余参数
 
-```js
+```typescript
 function test(prop1: string, prop2: string = "prop2", prop3?: string): string {
   return prop1 + " " + prop2 + (prop3 ? " " + prop3 : "");
 }
@@ -274,7 +277,7 @@ let testArrow = (prop: string, ...args: string[]): string => {
 
 ### 4.1 泛型语法
 
-```js
+```typescript
 function test<T>(prop: T): T {
   return prop;
 }
@@ -286,7 +289,7 @@ let testArrow = <T>(prop: T): T => {
 
 ### 4.2 泛型接口
 
-```js
+```typescript
 interface GenericIdentityFn {
   <T>(arg: T): T;
 }
@@ -302,7 +305,7 @@ let myIdentity: GenericIdentityFn = identity;
 
 泛型类使用 `<>` 括起泛型类型，跟在类名后面.泛型类指的是实例部分的类型，所以类的静态属性不能使用这个泛型类型。
 
-```js
+```typescript
 class GenericNumber<T> {
   zeroValue: T;
   add: (x: T, y: T) => T;
@@ -319,7 +322,7 @@ myGenericNumber.add = (x, y) => {
 
 - 使用泛型继承接口，来使用泛型中确定的元素
 
-```js
+```typescript
 interface LengthInter {
   length: number;
 }
@@ -334,7 +337,7 @@ test('3');
 
 - 在泛型里使用类类型，用于在创建工厂函数 TODO
 
-```js
+```typescript
 class BeeKeeper {
   hasMask: boolean;
 }
@@ -371,7 +374,7 @@ createInstance(Bee).keeper.hasMask;
 - 某一个指定默认值（任意位置都可以指定），其后成员在此基础上自增，其前不变。
 - 如果指定的值重复，两者共存，但是以索引来确认值时，后者覆盖前者。
 
-```js
+```typescript
 enum Color {
   Green,
   Red = 0,
@@ -395,7 +398,7 @@ console.log(Color);
 - 每一个成员必须必须进行初始化
 - 枚举可以混合字符串和数字成员，称为异构枚举(Heterogeneous enums)，这样容易引起问题(没有完全初始化时)，不建议使用
 
-```js
+```typescript
 enum Color {
   Green = "green",
   Red = "red",
@@ -417,7 +420,7 @@ console.log(Color);
 - TypeScript 里的类型兼容性是基于结构子类型的。也就是说只要元素类型一致，即使不是继承、实现关系，也可以认定为类型一致。
 - TypeScript 的类型系统允许某些在编译阶段无法确认其安全性的操作。当一个类型系统具此属性时，被当做是“不可靠”的。TypeScript 允许这种不可靠行为的发生是经过仔细考虑的。 TODO
 
-```js
+```typescript
 interface Named {
     name: string;
 }
@@ -442,7 +445,7 @@ p = new Person(); // OK, because of structural typing
 
 ### 7.1 交叉类型（Intersection Types）=》 &
 
-```js
+```typescript
 function extend<T, U>(first: T, second: U): T & U {
   let result = <T & U>{};
   for (let id in first) {
@@ -476,7 +479,7 @@ jim.log(); // do log
 
 联合类型表示一个值可以是几种类型之一, 我们用竖线 `|` 分隔每个类型
 
-```js
+```typescript
 function test(a: string, b: string | number): string | number {
   return b;
 }
@@ -484,7 +487,7 @@ function test(a: string, b: string | number): string | number {
 
 ### 7.3 类型谓词 =》 parameterName is Type TODO
 
-```js
+```typescript
 function isNumber(x: any): x is number {
   return typeof x === "number";
 }
@@ -500,7 +503,7 @@ function isNumber(x: any): x is number {
 
 字符串字面量类型允许你指定字符串必须的固定值。结合：联合类型、类型保护、类型别名，就可以实现类似枚举类型的字符串。
 
-```js
+```typescript
 type Input = "input1" | "input2" | "input3";
 
 function checkInput(input: Input): void {
@@ -516,7 +519,7 @@ checkInput("input0"); // error
 
 你可以合并单例类型，联合类型，类型保护和类型别名来创建一个叫做可辨识联合的高级模式，它也称做标签联合或代数数据类型。
 
-```js
+```typescript
 interface Square {
   kind: "square";
   size: number;
@@ -551,7 +554,7 @@ function area(s: Shape) {
 
 - 启用 `--strictNullChecks` 并且指定一个返回值类型。`switch` 没有包涵所有情况时，TypeScript 认为这个函数有时候会返回 `undefined`，即返回值类型为 `number | undefined`，这样就与 `number` 不一致会报错。这种方式缺点：错误提示不明确；历史代码不友好。
 
-```js
+```typescript
 function area(s: Shape): number{ // error: Function lacks ending return statement and return type does not include 'undefined'
   switch (s.kind) {
     case "square":
@@ -566,7 +569,7 @@ function area(s: Shape): number{ // error: Function lacks ending return statemen
 
 - 使用 `never` 类型，编译器用它来进行完整性检查。
 
-```js
+```typescript
 function assertNever(x: never): never {
   throw new Error("Unexpected object: " + x);
 }
@@ -587,7 +590,7 @@ function area(s: Shape) {
 
 ### 7.7 多态的 `this`(F-bounded)
 
-```js
+```typescript
 class BasicCalculator {
   public constructor(protected value: number = 0) {}
   public currentValue(): number {
