@@ -493,7 +493,7 @@ function isNumber(x: any): x is number {
 }
 ```
 
-### 7.4 类型别名 =》 type typeName TODO
+### 7.4 类型别名 =》 type typeName
 
 - 起别名不会新建一个类型,它创建了一个新名字来引用那个类型。
 - 类型别名不能出现在声明右侧的任何地方。
