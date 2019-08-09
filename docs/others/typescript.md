@@ -567,7 +567,7 @@ function area(s: Shape): number{ // error: Function lacks ending return statemen
 }
 ```
 
-- 使用 `never` 类型，编译器用它来进行完整性检查。 TODO
+- 使用 `never` 类型，编译器用它来进行完整性检查。
 
 ```typescript
 function assertNever(x: never): never {
