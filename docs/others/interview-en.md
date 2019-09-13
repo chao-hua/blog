@@ -167,7 +167,7 @@ B:我们今天的面试就到这里，我们会在一周内通知您面试结果
 
 A: It's my pleasure to attend the interview. Hope to see you again.
 
-A:参加贵公司的面试是我的荣幸。希望能再次见到您！
+A:参加贵公司的面试是我的荣幸。希望能再次见到您。
 
 B: Goodbye!
 
