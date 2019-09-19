@@ -12,3 +12,4 @@ JavaScript 知识点总结，是对一些常用知识点的总结和归纳，包
 - [bind 函数](/js/bind.md)
 - [防抖函数](/js/debounce.md)
 - [节流函数](/js/throttle.md)
+- [async](/js/async.md)

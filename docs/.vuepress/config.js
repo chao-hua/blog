@@ -47,6 +47,7 @@ module.exports = {
                     'bind',
                     'debounce',
                     'throttle',
+                    'async',
                 ],
             }],
             '/css/': [{
