@@ -7,10 +7,11 @@ module.exports = {
     themeConfig: { //主题配置
         lastUpdated: '更新时间',
         // 导航栏
-        nav: [/*{
-                text: '首页',
-                link: '/',
-            },*/
+        nav: [
+            /*{
+                            text: '首页',
+                            link: '/',
+                        },*/
             {
                 text: 'JavaScript 笔记',
                 link: '/js/',
@@ -103,6 +104,9 @@ module.exports = {
                 ],
             }],
         }
+    },
+    markdown: {
+        lineNumbers: true
     }
 }
 

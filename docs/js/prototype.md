@@ -58,7 +58,7 @@ for (let item in f1) {
     }
 }
 ```
-![原型示例3](http://oixvuz0x6.bkt.clouddn.com/201807201128521.png)
+![原型示例3](./img/js03.png)
 
 对象的原型链是沿着 `__proto__` 这条线走的，因此在查找 `f1.hasOwnProperty` 属性时，先在自身查找，自身没有；再到 `Foo.prototype` 中查找，没有找到；就会顺着原型链一直查找到 `Object.prototype`，这样我们就通过原型链实现了所谓的“继承”。
 

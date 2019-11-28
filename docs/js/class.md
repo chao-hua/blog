@@ -4,7 +4,7 @@
 
 ## 1.工厂模式
 
-```js
+```js{7,10}
 function createPerson(name) {
     var o = new Object();
     o.name = name;
@@ -21,7 +21,7 @@ var p1 = createPerson('hc');
 
 ## 2.构造函数
 
-```js
+```js{8}
 function Person(name) {
     this.name = name;
     this.getName = function() {
@@ -39,7 +39,7 @@ p1 instanceof Person // true
 
 ### 2.1 构造函数的优化
 
-```js
+```js{7}
 function getName() {
     console.log(this.name);
 }
@@ -57,7 +57,7 @@ var p1 = new Person('hc');
 
 ## 3.原型模式
 
-```js
+```js{3}
 function Person() {}
 
 Person.prototype = {
@@ -78,7 +78,7 @@ var p1 = new Person('hc');
 
 ### 3.1 原型模式的优化
 
-```js
+```js{11}
 function Person() {}
 
 Person.prototype = {
@@ -104,7 +104,7 @@ p1.friends === p2.friends // true
 
 ## 4.组合模式（最常见方式）
 
-```js
+```js{1,6}
 function Person(name) {
     this.name = name;
     this.friends = ['a', 'b'];
@@ -130,7 +130,7 @@ p1.friends === p2.friends // false
 
 ## 5.动态原型
 
-```js
+```js{5}
 function Person(name) {
     this.name = name;
     this.friends = ['a', 'b'];
@@ -153,7 +153,7 @@ var p1 = new Person('hc');
 
 ### 6.1 寄生(parasitic)构造函数
 
-```js
+```js{8,11}
 function Person(name) {
     var o = new Object();
     o.name = name;
@@ -174,7 +174,7 @@ p1 instanceof Person // false
 
 ### 6.2 稳妥(durable)构造函数
 
-```js
+```js{5,10}
 function Person(name) {
     var o = new Object();
     o.name = name;
@@ -194,7 +194,7 @@ p1.getName(); // "hc"
 
 ## 7.class（最推荐方式）
 
-```js
+```js{1,14}
 class Person {
     constructor(name) {
         this.name = name;
