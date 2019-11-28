@@ -32,13 +32,13 @@ let f1 = new Foo();
 - 自定义函数的 `prototype` 本质上就是和 `var obj = new Object()` 是一样的（函数是一种特殊的对象），都是被 `Object` 创建，所以它的 `__proto__` 指向的就是 `Object.prototype`，即 `Foo.prototype.__proto__ === Object.prototype // true`。
 - `Object.prototype` 确实一个特例，它的 `__proto__` 指向的是 `null`，即 `Object.prototype.__proto__ === null // true`。
 
-![原型示例1](http://oixvuz0x6.bkt.clouddn.com/181510403153733.png)
+![原型示例1](./img/js01.png)
 
 - 函数也是一种对象，所以函数也有 `__proto__`，函数对象是由`Function`函数创建出来的，故 `Foo.__proto__ === Function.prototype // true`。
 - `Object` 也是函数，故 `Object.__proto__ === Function.prototype // true`。
 - `Function` 也是一个函数，函数是一种对象。既然是函数，那么它一定是被 `Function` 创建。所以 `Function` 是被自身创建的。所以它的 `__proto__` 指向了自身的 `Prototype`，即 `Function.__proto__ === Function.prototype // true`。
 
-![原型示例2](http://oixvuz0x6.bkt.clouddn.com/181512068463597.png)
+![原型示例2](./img/js02.png)
 
 ## 2.原型链
 
