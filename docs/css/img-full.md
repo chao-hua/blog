@@ -2,7 +2,7 @@
 
 [[toc]]
 
-## 1.将图片作为背景图片
+## 1.将图片作为容器背景
 
 将图片作为容器的背景图片，主要使用 `background-size: cover;` 属性，可以使图片等比例缩放，适应容器，不留白边。  
 
@@ -13,7 +13,7 @@
 
 <img src="./img/css01.png" alt="原示意图"> 
 
-<demo>
+<demo column>
   <template slot="html">
     <css-full-img-1></css-full-img-1>
   </template>
@@ -44,7 +44,7 @@
 - 优点：和使用背景图效果一致；可以对图片加载错误、完成等进一步处理。
 - 缺点：[兼容性差，IE 全部不兼容](https://caniuse.com/#search=object-fit)。
 
-<demo>
+<demo column>
   <template slot="html">
     <css-full-img-2></css-full-img-2>
   </template>
@@ -78,7 +78,7 @@
 - 优点：兼容性好。
 - 缺点：图片高度或宽度任意一尺寸小于容器时，这个情况是正常的，但如果图片的高度和宽度尺寸都大于容器，图片也能铺满，但容器就只显示大图的中间部分。
 
-<demo>
+<demo column>
   <template slot="html">
     <css-full-img-3></css-full-img-3>
   </template>

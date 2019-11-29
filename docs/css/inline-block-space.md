@@ -2,7 +2,7 @@
 
 `inline-block` 水平呈现的元素间，由于换行、空格分隔的情况下会产生间距。  
 
-<demo>
+<demo column>
   <template slot="html">
     <css-inline-block-space-1></css-inline-block-space-1>
   </template>

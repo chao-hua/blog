@@ -35,7 +35,7 @@
 
 在字体 12px 情况下，主流浏览器都存在复选框、单选框与文字对不齐的问题。
 
-<demo>
+<demo column>
   <template slot="html">
     <css-vertical-align-1></css-vertical-align-1>
   </template>

@@ -89,7 +89,7 @@
 
 ### 2.1 webkit 方案
 
-<demo>
+<demo column>
   <template slot="html">
     <css-ellipsis-3></css-ellipsis-3>
   </template>
@@ -123,7 +123,7 @@
 
 由于 firefox 不支持 `-webkit-line-clamp` 属性，因此需要特殊处理。
 
-<demo>
+<demo column>
   <template slot="html">
     <css-ellipsis-4></css-ellipsis-4>
   </template>

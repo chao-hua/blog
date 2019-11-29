@@ -107,4 +107,19 @@ export default {
         margin-top: 20px;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .demo .demo__body {
+        flex-direction: column;
+
+        .part {
+            width: 100%;
+
+            &+.part {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    }
+}
 </style>
