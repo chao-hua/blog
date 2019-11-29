@@ -61,6 +61,7 @@ module.exports = {
                     'vertical-align',
                     'justify',
                     'ellipsis',
+                    'img-full',
                 ],
             }],
             '/vue/': [{
@@ -105,9 +106,9 @@ module.exports = {
             }],
         }
     },
-    markdown: {
+    /*markdown: {
         lineNumbers: true
-    }
+    }*/
 }
 
 /*function genSidebarConfig(title) {
