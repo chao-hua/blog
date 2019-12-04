@@ -62,6 +62,7 @@ module.exports = {
                     'justify',
                     'ellipsis',
                     'img-full',
+                    'line-height',
                 ],
             }],
             '/vue/': [{
@@ -101,7 +102,9 @@ module.exports = {
                     'summary',
                     'interview',
                     'interview-en',
-                    'typescript'
+                    'typescript',
+                    'npm',
+                    'test',
                 ],
             }],
         }
