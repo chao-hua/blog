@@ -85,3 +85,41 @@
 	+ Webpack 与 gulp 区别
 	+ 前端工程化理解
 	+ Vue 选型的确定
+- Event Loop
+
+首选明确两点：
+
+> `JavaScript` 是单线程语言
+
+> `JavaScript` 的 `Event Loop` 是 `JS` 的执行机制, 也就是事件循环
+
+```js
+console.log(1)
+    
+setTimeout(function(){
+    console.log(2)
+},0)
+
+console.log(3) // 1 3 2
+```
+> `JavaScript` 将任务分为同步任务和异步任务，执行机制就是先执行同步任务，将同步任务加入到主线程，遇到异步任务就先加入到 `event table` ，当所有的同步任务执行完毕，如果有可执行的异步任务，再将其加入到主线程中执行
+
+视频详解，移步 [这里](https://vimeo.com/96425312)
+
+```js
+setTimeout(function(){console.log(1);},0);
+new Promise(function(resolve){
+     console.log(2);
+     for(var i = 0; i < 10000; i++){
+         i == 99 && resolve();
+     }
+ }).then(function(){
+     console.log(3)
+ });
+ 
+console.log(4); // 2 4 3 1
+```
+
+在异步任务中，定时器也属于特殊的存在。有人将其称之为 宏任务、微任务，定时器就属于宏任务的范畴。
+
+参考 [JS引擎的执行机制](https://segmentfault.com/a/1190000012806637)
