@@ -210,6 +210,7 @@ Person === Person.prototype.constructor // true
 
 var p1 = new Person('hc');
 ```
+
 `class` 是 ES6 中对象模板，是一个语法糖（类的数据类型就是函数）。与 ES5 中创建对象区别有以下几点：  
 
 - 类内部定义的方法，都是不枚举的。
