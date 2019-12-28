@@ -300,9 +300,9 @@
 
 ## 4.Vue 
 
-### 4.1 Vue 原理
+### 4.1 Vue 2.+ 原理
 
-- 双向数据绑定
+- 双向数据绑定-数据劫持
     + `Object.defineProperty` IE9+ 提供给属性 `getter` 和 setter 方法。
     + 不足：
         + 数组的 push/pop 等操作
@@ -312,12 +312,13 @@
     + 改进
         + 对数组方法进行变异
         + 增加 `$set` 、`$delete` 进行属性的添加、删除
-- 观察者模式
+- 双向数据绑定-观察者模式
     * 观察者订阅了可观察对象，当可观察对象发布事件，则就直接调度观察者的行为，所以这里观察者和可观察对象其实就产生了一个依赖的关系。与发布订阅模式略有不同，发布订阅有一个事件分发调度中心。
     * 3个关键的类
         * Observer：主要用于给 Vue 的数据 `defineProperty` 增加 `getter/setter` 方法，并且在 `getter/setter`中收集依赖或者通知更新
         * Watcher：观察数据（或者表达式）变化然后执行回调函数
         * Dep：就是一个可观察对象，可以有不同指令订阅它
+- <img src="./img/others04.png" alt="Vue">
 
 ### 4.2 Vue 实例初始化
 
@@ -531,6 +532,27 @@
     + 在剩余中找到最大/小，排在已排序的末尾
     + 在未排序中重复步骤 2，直到完毕
 
+### 6.2 时间复杂度、空间复杂度 
+
+算法（Algorithm）是指用来操作数据、解决程序问题的一组方法。对于同一个问题，使用不同的算法，也许最终得到的结果是一样的，但在过程中消耗的资源和时间却会有很大的区别。
+
+- 如何去衡量不同算法之间的优劣，主要从算法所占用的「时间」和「空间」两个维度去考量。
+    + 时间维度：是指执行当前算法所消耗的时间，我们通常用「时间复杂度」来描述。
+    + 空间维度：是指执行当前算法需要占用多少内存空间，我们通常用「空间复杂度」来描述。
+- 时间复杂度
+    + 大O符号表示法中，时间复杂度的公式是：T(n) = O(f(n))，其中f(n) 表示每行代码执行次数之和，而 O 表示正比例关系，这个公式的全称是：算法的渐进时间复杂度。
+    + 大O符号表示法并不是用于来真实代表算法的执行时间的，它是用来表示代码执行时间的增长变化趋势的。
+    + O(1)：无论代码执行了多少行，只要是没有循环等复杂结构，那这个代码的时间复杂度就都是O(1)
+    + O(n)：线性阶 一层循环
+    + O(logN)：对数阶 循环中 `i = i * 2`
+    + O(nlogN)：一层循环 包裹 对数阶
+    + O(n²)：平方阶 双层循环
+    + O(n^k)：K次方阶 k层循环
+- 空间复杂度
+    + 空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，同样反映的是一个趋势，我们用 S(n) 来定义。
+    + O(1)：如果算法执行所需要的临时空间不随着某个变量n的大小而变化，即此算法空间复杂度为一个常量，可表示为 O(1)
+    + O(n)：例如new了一个数组出来，这个数据占用的大小为n，就是空间复杂度为O(n)
+
 ## 7.Others
 
 ### 7.1 测试
@@ -689,21 +711,53 @@
     + 如果攻击者劫持了 CDN，或者对 CDN 中的资源进行了污染，那么我们的前端应用拿到的就是有问题的 JS 脚本。这种攻击方式造成的效果和XSS跨站脚本攻击相似。
     + 使用浏览器提供的SRI（Subresource Integrity）功能。每个资源文件都有一个SRI值。由两部分组成，减号（-）左侧是生成SRI值用到的哈希算法名，右侧是经过Base64编码后的该资源文件的Hash值。浏览器在处理这个script元素的时候，就会检查对应的JS脚本文件的完整性，看其是否和script元素中integrity属性指定的SRI值一致，如果不匹配，浏览器则会中止对这个JS脚本的处理。
 
-### 7.7 错误监控
+### 7.7 错误监控、性能采集、用户信息收集
 
 + 前端错误分类
     * 即时运行错误：代码错误
         - 捕获方式：
             + `try..catch`
-            + `window.onerror`
+            + `window.onerror` 捕捉 js 错误
+            + `addEventListener('unhandledrejection', callback)` 捕捉 promise 错误，但是没有发生错误的行数，列数等信息，只能手动抛出相关错误信息。
     * 资源加载错误
         - 捕获方式：
             + `object.onerror`
             + `performance.getEntries()` 成功加载资源的集合
-            +  Error 事件捕获，`window.addEventListener('error',function(){},true)`
+            +  `window.addEventListener('error',function(){},true)` 在捕获阶段捕捉资源加载失败错误
 + 上报错误基本原理
-    * 利用 Ajax 上报。
+    * 利用 Ajax 上报(尽量不要影响性能)。
     * 利用 Image 对象上报。 `(new Image()).src = 'http://baidu.com/test?123';`
++ 性能采集
+    * `window.performance` 可以通过一些计算，获取相应的关键耗时
+        - // 重定向耗时
+        - redirect: timing.redirectEnd - timing.redirectStart,
+        - // 白屏时间
+        - whiteScreen: timing.responseStart - timing.navigationStart,
+        - // DOM 渲染耗时
+        - dom: timing.domComplete - timing.domLoading,
+        - // 页面加载耗时
+        - load: timing.loadEventEnd - timing.navigationStart,
+        - // 页面卸载耗时
+        - unload: timing.unloadEventEnd - timing.unloadEventStart,
+        - // 请求耗时
+        - request: timing.responseEnd - timing.requestStart,
+    * `window.performance.getEntriesByType('resource') `这个方法，我们还可以获取相关资源（js、css、img...）的加载时间，它会返回页面当前所加载的所有资源。
+        - // 资源的名称
+        - name: item.name,
+        - // 资源加载耗时
+        - duration: item.duration.toFixed(2),
+        - // 资源大小
+        - size: item.transferSize,
+        - // 资源所用协议
+        - protocol: item.nextHopProtocol,
+    * `window.performance` API 是有缺点的，在 SPA 切换路由时，window.performance.timing 的数据不会更新。所以我们需要另想办法来统计切换路由到加载完成的时间。拿 Vue 举例，一个可行的办法就是切换路由时，在组件的 beforeCreate 钩子里执行 vm.$nextTick 函数来获取切换路由时组件的完全渲染时间。
+- 用户信息收集
+    + `window.navigator` 收集到用户的设备信息，操作系统，浏览器信息
+    + UV（Unique visitor）：指通过互联网访问、浏览这个网页的自然人，一天内同个访客多次访问仅计算一个UV。
+    + PV（Page View）：页面浏览量或点击量，每1次对网站中的每个网页访问均被记录1个PV。
+    + 页面停留时间
+    + 浏览深度：document.documentElement.scrollTop 属性以及屏幕高度，可以判断用户是否浏览完网站内容。
+    + 页面跳转来源：通过 document.referrer 属性，可以知道用户是从哪个网站跳转而来
 
 ### 7.8 项目设计
 + css 模块化
@@ -775,4 +829,65 @@
 - 更新令牌
     + 令牌的有效期到了，如果让用户重新走一遍上面的流程，再申请一个新的令牌，很可能体验不好，而且也没有必要
     + OAuth 2.0 允许用户自动更新令牌： B 网站颁发令牌的时候，一次性颁发两个令牌，一个用于获取数据，另一个用于获取新的令牌（refresh token 字段）。令牌到期前，用户使用 refresh token 发一个请求，去更新令牌。
+
+### 7.11 HTPP2
+
+- HTTP1 一些问题
+    + TCP 连接数过多，HTTP1.0只允许一条 tcp 链接上处理一个 request，尽管后来的 HTTP1.1(现在常用的版本）允许pipelining， 管道，通过这个管道，浏览器的多个请求可以同时发到服务器，但是服务器的响应只能够一个接着一个的返回。浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制。超过限制数目的请求会被阻塞,这也是为何一些站点会有多个静态资源 CDN 域名的原因之一。
+    + HTTP 头部过多重复
+    + 使用文本协议
+- HTPP2 主要变化
+    + 高效压缩头部（http header）
+    + 二进制协议
+    + 多路复用：允许多个 request/response在同一个 tcp 链接上发送
+    + 还有自己的流量控制，保证各个 stream不被互相干扰；
+    + 支持请求分优先级发送，优先级越高如核心 css、html，优先发给客户端
+    + 支持服务器预测并推送客户端可能需要的资源，让客户端先做缓存（server push），榨干服务器
+    + 更安全的SSL
+- 升级 HTTP2
+    + openssl 1.0.2 ，Nginx 1.9.5+
+    + 域名就必须是 https
+    + nginx 开启 HPPT/2 非常简单，只需在 HTTPS 设置后加上 http2 即可
+
+### 7.12 SEO 优化
+
+- meta 描述：
+    + < meta name="keywords" content="关键词1，关键词2" />
+    + < meta name="description" content="描述1，描述2" />
+- 优化 html 标签
+    + 多使用 H5 的语义化标签
+    + HTML5 Outliner
+- 图片 `<img />` 添加 alt 属性
+- 多使用 svg 图片，svg 图像的源文件是一个文本文件，有利于访问
+- 导航栏的层级数不宜太深
+- 页面跳转，尽量使用 `<a href="#"></a>`, 不使用 js 跳转
+- 单页应用 SEO 优化
+    + SSR
+    + nginx拦 截网络爬虫转发请求到 node 服务器，预渲染出请求页面，返回渲染好的 html。
+    
+### 7.13 MVC MVP MVVM
+
+MVC，MVP和MVVM都是常见的软件架构设计模式（Architectural Pattern），它通过分离关注点来改进代码的组织方式。不同于设计模式（Design Pattern），只是为了解决一类问题而总结出的抽象方法，一种架构模式往往使用了多种设计模式。
+
+- MCV：Model-View-Controller
+    + 用户对View的操作交给了Controller处理，在Controller中响应View的事件调用Model的接口对数据进行操作，一旦Model发生变化便通知相关视图进行更新。
+    + MVC模式的业务逻辑主要集中在Controller，而前端的View其实已经具备了独立处理用户事件的能力，当每个事件都流经Controller时，这层会变得十分臃肿。
+    + 而且MVC中View和 Controller 一般是一一对应的，捆绑起来表示一个组件，视图与控制器间的过于紧密的连接让 Controller的复用性成了问题。
+    + <img src="./img/others01.png" alt="MVC">
+- MVP：Model-View-Presenter
+    + MVP中的View并不能直接使用Model，而是通过为Presenter提供接口，让Presenter去更新Model，再通过观察者模式更新View。
+    + MVP模式通过解耦View和Model，完全分离视图和模型使职责划分更加清晰；由于View不依赖Model，可以将View抽离出来做成组件，它只需要提供一系列接口提供给上层操作。
+    + Presenter作为View和Model之间的“中间人”，除了基本的业务逻辑外，还有大量代码需要对从View到Model和从Model到View的数据进行“手动同步”，这样Presenter显得很重，维护起来会比较困难。
+    + Presenter对视图渲染的需求增多，它不得不过多关注特定的视图，一旦视图需求发生改变，Presenter也需要改动。
+    + <img src="./img/others02.png" alt="MVP">
+- MVVM：Model-View-ViewModel
+    + MVVM把View和Model的同步逻辑自动化了。以前Presenter负责的View和Model同步不再手动地进行操作，而是交给框架所提供的数据绑定功能进行负责，只需要告诉它View显示的数据对应的是Model哪一部分即可。
+    + 比MVC/MVP精简了很多，不仅仅简化了业务与界面的依赖，还解决了数据频繁更新的问题。因为在MVVM中，View不知道Model的存在，ViewModel和Model也察觉不到View，这种低耦合模式可以使开发过程更加容易，提高应用的可重用性。
+    + <img src="./img/others03.png" alt="MVVM">
+- 双向数据绑定
+    + 数据劫持+观察者模式 (Vue)
+    + 发布-订阅模式 (Knockout、Backbone)
+    + 脏值检查 (Angular)
+
+### 7.14 flutter、rn、uni-app(weex)
 
