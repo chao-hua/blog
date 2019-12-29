@@ -891,3 +891,29 @@ MVC，MVP和MVVM都是常见的软件架构设计模式（Architectural Pattern�
 
 ### 7.14 flutter、rn、uni-app(weex)
 
+- React Native
+    + 概述
+        * Facebook 出品，JavaScript语言，JSCore引擎，React设计模式，原生渲染
+        * react native 用了 react 的设计模式，但UI渲染、动画效果、网络请求等均由原生端实现。开发者编写的js代码，通过 react native 的中间层转化为原生控件和操作，大大提高了的用户体验。
+    + 原理
+        * 跨平台是实现主要由三层构成
+            - 其中 C++ 实现的动态连结库(.so)，作为中间适配层桥接，实现了js端与原生端的双向通信交互。这里最主要是封装了 JavaScriptCore 执行js的解析，而 react native 运行在JavaScriptCore中，所以不存在浏览器兼容的问题。
+            - 在IOS上直接使用内置的javascriptcore， 在Android 则使用webkit.org官方开源的jsc.so。
+        * react native 所有的标签都不是真实控件，JS代码中所写控件的作用，类似 Map 中的 key 值。JS端通过这个 key 组合的 Dom ，最后Native端会解析这个 Dom ，得到对应的Native控件渲染
+        * 在 react native 中，JS端是运行在独立的线程中（称为JS Thread ），而跨线程通信，也意味着 Js Thread 和原生之间交互与通讯是异步的。
+        * 原生端提供的各种 Native Module 模块和JS 端提供的各种 JS Module都会在C++实现的so中保存起来，双方的通讯通过C++中的保存的映射，最终实现两端的交互。通信的数据和指令，在中间层会被转为String字符串传输。
+- WEEX
+    + 概述
+        * Alibaba 出品，JavaScript语言，JS V8引擎，Vue设计模式，原生渲染
+        * 基于 Vue 设计模式，支持 web、android、ios 三端，原生端同样通过中间层转化，将控件和操作转化为原生逻辑来提高用户体验。
+    + 原理
+        * 三大部分：
+            + JS Bridge、Render、Dom，分别对应WXBridgeManager、WXRenderManager、WXDomManager，三部分通过WXSDKManager统一管理。其中 JS Bridge 和 Dom 都运行在独立的 HandlerThread 中，而 Render 运行在 UI 线程。
+            + JS Bridge 主要用来和 JS 端实现进行双向通信，比如把 JS 端的 dom 结构传递给 Dom 线程。Dom 主要是用于负责 dom 的解析、映射、添加等等的操作，最后通知UI线程更新。而 Render 负责在UI线程中对 dom 实现渲染。
+        * 和 react native一样，weex 所有的标签也不是真实控件，JS 代码中所生成存的 dom，最后都是由 Native 端解析，再得到对应的Native控件渲染。
+        * Weex SDK会负责加载渲染这个js文件。Weex可以做到跨三端的原理在于：在开发过程中，代码模式、编译过程、模板组件、数据绑定、生命周期等上层语法是一致的。不同的是在 JS Framework 层的最后，web 平台和 Native 平台，对 Virtual DOM 执行的解析方法是有区别的。
+
+
+### 7.15 Vue、React、Angular
+
+
