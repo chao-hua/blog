@@ -29,12 +29,7 @@
 	+ 您对我在团队中的定位是怎么样的，我的过往工作经历，有哪些是对咱们团队有帮助的？
 - 补充
 	+ 前端发展状况
-	+ 动态规划的理解
 	+ pwa
 	+ vue react angular 技术选型
-	+ webpack 多页面构架
-	+ webpack 代码分割方式
-	+ webpack 插件原理
-
 
 [浅析前端开发中的 MVC/MVP/MVVM 模式](https://zhuanlan.zhihu.com/p/27302766)
