@@ -319,11 +319,27 @@
         * Watcher：观察数据（或者表达式）变化然后执行回调函数
         * Dep：一个处理依赖关系的对象，主要起到一个纽带的作用
 - <img src="./img/others04.png" alt="Vue">
+- `computed` 原理
+    + 初始化 data和computed,分别代理其set以及get方法, 对data中的所有属性生成唯一的dep实例。
+    + 对computed中的reversedMessage生成唯一watcher,并保存在vm._computedWatchers中
+    + 访问 reversedMessage，设置Dep.target指向reversedMessage的watcher,调用该属性具体方法reversedMessage。
+    + 方法中访问this.message，即会调用this.message代理的get方法，将this.message的dep加入reversedMessage的watcher,同时该dep中的subs添加这个watcher
+    + 设置vm.message = 'World'，调用message代理的set方法触发dep的notify方法'
+    + 因为是computed属性，只是将watcher中的dirty设置为true
+    + 最后一步vm.reversedMessage，访问其get方法时，得知reversedMessage的watcher.dirty为true,调用watcher.evaluate()方法获取新的值。
+    + - _init => initState => 
+        - initData => new Observer => defineReactive => new Dep,getter:dep.depend(Watcher);setter:dep.notify()
+        - initComputed => new Watcher(dirty,lazy=true) => defineComputed => getter:evaluate()
+- Vuex 原理
+    + 高度依赖于vue的computed依赖检测系统以及其插件系统，
+    + applyMixin方法，该方法主要作用就是在所有组件的beforeCreate生命周期注入了设置this.$store这样一个对象
+    + resetStoreVM => 其本质就是将我们传入的state作为一个隐藏的vue组件的data,也就是说，我们的commit操作，本质上其实是修改这个组件的data值，结合上文的computed,修改被defineReactive代理的对象值后，会将其收集到的依赖的watcher中的dirty设置为true,等到下一次访问该watcher中的值后重新获取最新值。
+    + 最后一句话结束vuex工作原理，vuex中的store本质就是没有template的隐藏着的vue组件；
 
 ### 4.2 Vue 实例初始化
 
 - init 函数
-    +  vm 生命周期的相关变量初始化
+    + vm 生命周期的相关变量初始化
     + vm 事件相关初始化
     + 模板开始解析
     + `beforeCreate` 钩子函数
