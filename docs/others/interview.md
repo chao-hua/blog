@@ -247,9 +247,9 @@
     + `await` 必须用在 `async` 函数中。`async` 函数调用不会造成阻塞，它内部所有的阻塞都被封装在一个 Promise 对象中异步执行。
 - 优点
     + 同步的编程风格。
-    + `async` 声明的方法，返回 Promise 对象，以为着安全的使用 `.then(...)` 或者 `await`。
+    + `async` 声明的方法，返回 Promise 对象，可以安全的使用 `.then(...)` 或者 `await`。
 - 错误处理
-    + `try...catch`：标准写法；快中的所有异常都将捕获，不仅仅是异步的错误
+    + `try...catch`：标准写法；块中的所有异常都将捕获，不仅仅是异步的错误
     + 改造 Promise 使其同时返回错误和结果：类似 Node 错误处理方式
     + 在 Promise 后继续使用 `.catch()` 来处理错误：错误优先政策处理，不直观
 - 串行与并行
@@ -315,9 +315,9 @@
 - 双向数据绑定-观察者模式
     * 观察者订阅了可观察对象，当可观察对象发布事件，则就直接调度观察者的行为，所以这里观察者和可观察对象其实就产生了一个依赖的关系。与发布订阅模式略有不同，发布订阅有一个事件分发调度中心。
     * 3个关键的类
-        * Observer：主要用于给 Vue 的数据 `defineProperty` 增加 `getter/setter` 方法，并且在 `getter/setter`中收集依赖或者通知更新
+        * Observer：主要用于给 Vue 的数据 `defineProperty` 增加 `getter/setter` 方法，并且在 `getter/setter`中收集依赖/通知依赖更新
         * Watcher：观察数据（或者表达式）变化然后执行回调函数
-        * Dep：就是一个可观察对象，可以有不同指令订阅它
+        * Dep：一个处理依赖关系的对象，主要起到一个纽带的作用
 - <img src="./img/others04.png" alt="Vue">
 
 ### 4.2 Vue 实例初始化
@@ -335,7 +335,7 @@
         * `watch`
 - `created` 钩子函数
     + 实例创建完成
-    + 但为挂载到 DOM 中，`$el`、`$ref`不能访问
+    + 但未挂载到 DOM 中，`$el`、`$ref`不能访问
 - `beforeMount` 钩子函数
     + 在挂载开始之前被调用
     + 找到对应的 `template`，并编译成 `render` 函数
@@ -398,7 +398,7 @@
     + `beforeEach(to, from, next)`
     + `beforeResolve`：在导航被确认之前，同时在所有组件内守卫和异步路由组件被解析之后，解析守卫就被调用
     + `afterEach(to, from)`
-- 独享
+- 独享(路由配置)
     + `beforeEnter`
 - 组件内
     + `beforeRouteEnter(to, from, next)`：不能访问 `this`,可以通过回调 `next` 来访问组件示例
@@ -406,7 +406,7 @@
     + `beforeRouteLeave(to, from, next)`
 - 导航解析流程
     + 导航被触发。
-    + 在失活的组件里调用离开守卫。
+    + 在失活的组件里调用离开守卫 `beforeRouteLeave`。
     + 调用全局的 `beforeEach` 守卫。
     + 在重用的组件里调用 `beforeRouteUpdate` 守卫 (2.2+)。
     + 在路由配置里调用 `beforeEnter`。
@@ -549,7 +549,7 @@
     + O(n²)：平方阶 双层循环
     + O(n^k)：K次方阶 k层循环
 - 空间复杂度
-    + 空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，同样反映的是一个趋势，我们用 S(n) 来定义。
+    + 空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，同样反映的是一个趋势，我们用 S(n) = O(f(n)) 来定义。
     + O(1)：如果算法执行所需要的临时空间不随着某个变量n的大小而变化，即此算法空间复杂度为一个常量，可表示为 O(1)
     + O(n)：例如new了一个数组出来，这个数据占用的大小为n，就是空间复杂度为O(n)
 
@@ -655,41 +655,41 @@
 
 ### 7.5 性能优化
 
-+ 原则
-    * 多使用内存、缓存或者其他方法。
-    * 减少 CPU 计算。
-    * 减少网络。
-+ 入手方向
-    * 加载页面和资源：
-          - 静态资源的合并压缩。
-          - 非核心代码的异步加载。
+- 原则
+    + 多使用内存、缓存或者其他方法。
+    + 减少 CPU 计算。
+    + 减少网络。
+- 入手方向
+    + 加载页面和资源：
+       - 静态资源的合并压缩。
+       - 非核心代码的异步加载。
               + `defer`：异步加载，在 HTML 解析完之后(所有元素解析完成之后，DOMContentLoaded 事件触发之前)才执行，多个时按照加载顺序执行(浏览器实现时不能确定是顺序执行)。=》更推荐。
-              + `async`：异步加载完后立即执行，多个时执行顺序与加载顺序无关。
-          - 利用静态资源缓存 - 只有内容改变时，资源链接名称才改变。
-              + 缓存分类：强缓存、协商缓存。
-          - 使用 CDN 让资源加载更快。
-          - 预解析 DNS。
-              + `<meta http-equiv="x-dns-prefetch-control" content="on" />`
-              + `<link rel="dns-prefetch" href="http://xxxxm" />`
-          - 使用 SSR 后端渲染，数据直接输出到 HTML 中。
-    * 页面渲染：
-          - CSS 放前，JS 放后。
-          - 懒加载（图片懒加载，下拉加载更多）- 图片开始的地址是一个默认图片，等图片加载完后，在加载真正的地址。
-          - 减少 DOM 查询，对 DOM 查询做缓存 - 循环时，尽量先缓存 DOM。
-            `var dList = document.getElementByTagName('div'); for(var i=0; i<dList.length; i++){}`
-          - 减少 DOM 操作，多个操作尽量合并执行 - 先对片段操作，最后在一次进行 DOM 操作。  
-            `var frag = document.createDocumentFragment(); for(...){...} trueDom.appendChild(grag)`
-          - 事件节流、事件防抖。  
-            节流的目的是：降低触发回调的频率，减少不必要的过多的调用。 常应用于：DOM 元素的拖拽功能实现（mousemove）；搜索联想（keyup）；页面底部自动加载更多。  
-            防抖的目的是：高频（由 wait 来确定）操作下只响应一次。 常应用于：resize、scroll、mousedown、mousemove等；文本输入的验证（keyup、keydown）。
-          - 尽早执行操作（`DOMContentLoaded`）。
+           + `async`：异步加载完后立即执行，多个时执行顺序与加载顺序无关。
+       - 利用静态资源缓存 - 只有内容改变时，资源链接名称才改变。
+           + 缓存分类：强缓存、协商缓存。
+       - 使用 CDN 让资源加载更快。
+       - 预解析 DNS。
+           + `<meta http-equiv="x-dns-prefetch-control" content="on" />`
+           + `<link rel="dns-prefetch" href="http://xxxxm" />`
+       - 使用 SSR 后端渲染，数据直接输出到 HTML 中。
+    + 页面渲染：
+       - CSS 放前，JS 放后。
+       - 懒加载（图片懒加载，下拉加载更多）- 图片开始的地址是一个默认图片，等图片加载完后，在加载真正的地址。
+       - 减少 DOM 查询，对 DOM 查询做缓存 - 循环时，尽量先缓存 DOM。
+         `var dList = document.getElementByTagName('div'); for(var i=0; i<dList.length; i++){}`
+       - 减少 DOM 操作，多个操作尽量合并执行 - 先对片段操作，最后在一次进行 DOM 操作。  
+         `var frag = document.createDocumentFragment(); for(...){...} trueDom.appendChild(grag)`
+       - 事件节流、事件防抖。  
+            + 节流的目的是：降低触发回调的频率，减少不必要的过多的调用。 常应用于：DOM 元素的拖拽功能实现（mousemove）；搜索联想（keyup）；页面底部自动加载更多。  
+            + 防抖的目的是：高频（由 wait 来确定）操作下只响应一次。 常应用于：resize、scroll、mousedown、mousemove等；文本输入的验证（keyup、keydown）。
+        - 尽早执行操作（`DOMContentLoaded`）。
 
 ### 7.6 安全性
 
-+ XSS 跨站脚本攻击
+- XSS 跨站脚本攻击
     * 利用合法的渠道（留言等），向页面注入脚本。
     * 前端替换关键字，后端替换更好。
-+ XSRF/CSRF 跨站请求伪造
+- XSRF/CSRF 跨站请求伪造
     * 原理：
         - 在网站 A 登陆过，有 cookie 认证，B 网站引诱点击，请求 A 网站的漏洞链接。
     * 防御措施：
@@ -862,7 +862,7 @@
 - 导航栏的层级数不宜太深
 - 页面跳转，尽量使用 `<a href="#"></a>`, 不使用 js 跳转
 - 单页应用 SEO 优化
-    + SSR
+    + SSR:Nuxt.js (asyncData服务端获取数据return注入；nuxtServerInit服务端货物数据，提前设置store)
     + nginx拦 截网络爬虫转发请求到 node 服务器，预渲染出请求页面，返回渲染好的 html。
     
 ### 7.13 MVC MVP MVVM
@@ -920,4 +920,3 @@ MVC，MVP和MVVM都是常见的软件架构设计模式（Architectural Pattern�
         * Flutter 主要分为 Framework 和 Engine，我们基于Framework 开发App，运行在 Engine 上。Engine 是 Flutter 的独立虚拟机，由它适配和提供跨平台支持。
         * 得益于 Engine 层，Flutter 甚至不使用移动平台的原生控件， 而是使用自己  Engine 来绘制 Widget （Flutter的显示单元），而 Dart 代码都是通过 AOT 编译为平台的原生代码，所以 Flutter 可以 直接与平台通信，不需要JS引擎的桥接。同时 Flutter 唯一要求系统提供的是 canvas，以实现UI的绘制。
 
-### 7.15 Vue、React、Angular

@@ -12,7 +12,7 @@
 ### 1.2 优点
 
 - 同步的编程风格。
-- `async` 声明的方法，返回 Promise 对象，以为着安全的使用 `.then(...)` 或者 `await`。
+- `async` 声明的方法，返回 Promise 对象，可以安全的使用 `.then(...)` 或者 `await`。
 
 ## 2.错误处理
 
@@ -21,7 +21,7 @@
 标准写法，将 `await` 命令放在 `try...catch` 代码块中。
 
 - 可以将多个 `await` 语句放在 `try...catch` 代码块中，统一处理。
-- `try` 快中的所有异常都将捕获，不仅仅是异步的错误。
+- `try` 块中的所有异常都将捕获，不仅仅是异步的错误。
 
 ```javascript
 async function asyncFunction() {

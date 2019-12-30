@@ -28,9 +28,9 @@
 	+ 目前咱们的业务，有一个什么样时间规划，这期间有哪些 milestone(里程碑)?
 	+ 您对我在团队中的定位是怎么样的，我的过往工作经历，有哪些是对咱们团队有帮助的？
 - 补充
-	+ flutter weex react-native
 	+ 前端发展状况
 	+ 动态规划的理解
+	+ pwa
 	+ vue react angular 技术选型
 	+ webpack 多页面构架
 	+ webpack 代码分割方式
