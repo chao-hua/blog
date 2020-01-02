@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[41],{31:function(n,t,e){"use strict";e.r(t);var c={inject:{theme:{default:function(){return{}}}}},o=e(1),l=Object(o.a)(c,(function(n,t){var e=t._c;return e("div",{staticClass:"wrap"},[e("h3",{style:{color:t.injections.theme.color}},[t._v("F 结点")])])}),[],!0,null,null,null);t.default=l.exports}}]);
