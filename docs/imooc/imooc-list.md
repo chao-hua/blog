@@ -88,3 +88,9 @@
 - [纯正商业级应用-微信小程序开发实战](https://coding.imooc.com/class/251.html) 18h
 - [让你页面速度飞起来 Web 前端性能优化](https://coding.imooc.com/class/130.html) 12h
 - [Node.js 入门到企业 Web 开发中的应用](https://coding.imooc.com/class/146.html) 11h
+- [算法与数据结构-综合提升 C++版](https://coding.imooc.com/class/71.html) 14h
+- [玩转算法面试 从真题到思维全面提升算法思维](https://coding.imooc.com/class/82.html) 18h
+- [深度实战玩转算法](https://coding.imooc.com/class/138.html) 17h
+- [Python3入门机器学习 经典算法与应用轻松入行人工智能](https://coding.imooc.com/class/169.html) 25h
+- [玩转算法系列--玩转数据结构 更适合0算法基础入门到进阶（java版）](https://coding.imooc.com/class/207.html) 25h
+- [JavaScript版 数据结构与算法](https://coding.imooc.com/class/315.html) 14h
