@@ -105,6 +105,7 @@ module.exports = {
                     'interview',
                     'interview-en',
                     'summary',
+                    'mac',
                 ],
             }],
         }
