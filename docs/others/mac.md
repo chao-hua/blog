@@ -82,7 +82,7 @@
 - 直接[下载](https://www.iterm2.com/downloads.html)，安装
 - Homebrew 进行安装 `brew cask install iterm2`
 
-配置 [Dracula](https://draculatheme.com/zsh/) 主题：
+配置 [Dracula](https://draculatheme.com/iterm/) 主题：
 
 - 根据官网操作
 - iTerm2 中，command+, 调出设置页面，Preferences -> Profiles -> Colors -> Color Presets -> import 刚才克隆地中中的文件，最后选择 Dracula
@@ -164,10 +164,10 @@
 
 ### 2.4 安装命令提示插件 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
-- 下载到用户名下 .zsh 文件夹下：`ssudo git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+- 下载到用户名下 .zsh 文件夹下：`sudo git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
 - 编辑配置文件，使用插件
     + `vim ~/.zshrc`
-    + 添加 `ssource ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh`
+    + 添加 `source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh`
     + 重启
 
 ***
