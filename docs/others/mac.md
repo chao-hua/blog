@@ -12,29 +12,29 @@
 
 ### 1.1 系统
 
-- `⌘ + ⌃ + Q` 锁屏
-- `^ +↑ ` 调度中心
-- `^ + ↓` 显示最前面的 App 的所有窗口
-- `⌘ + Tab` 切换应用
-- `F11` 显示桌面
-- `⌃ + 空格` 切换输入法
-- `⌘ + 空格` 聚焦搜索
-- `⌥ + 空格` 启动 Alrfed
+- `⌘ + ⌃ + Q`：锁屏
+- `^ +↑ `：调度中心
+- `^ + ↓`：显示最前面的 App 的所有窗口
+- `⌘ + Tab`：切换应用
+- `F11`：显示桌面
+- `⌃ + 空格`：切换输入法
+- `⌘ + 空格`：聚焦搜索
+- `⌥ + 空格`：启动 Alrfed
 
 ### 1.2 程序通用
 
-- `⌘ + M` 最小化窗口
-- `⌘ + H` 隐藏窗口
-- `⌘ + N` 新建窗口
-- `⌘ + T` 新建标签页
-- `⌘ + O` 打开
-- `⌘ + S` 保存
-- `⌘ + W` 关闭
-- `⌘ + Q` 退出
-- `⌘ + ⌃ + F` 当前 App 进入、退出全屏
-- `⌘ + ,` 打开 App 偏好设置
-- `⌘ + +` 放大
-- `⌘ + -` 缩小
+- `⌘ + M`：最小化窗口
+- `⌘ + H`：隐藏窗口
+- `⌘ + N`：新建窗口
+- `⌘ + T`：新建标签页
+- `⌘ + O`：打开
+- `⌘ + S`：保存
+- `⌘ + W`：关闭
+- `⌘ + Q`：退出
+- `⌘ + ⌃ + F`：当前 App 进入、退出全屏
+- `⌘ + ,`：打开 App 偏好设置
+- `⌘ + +`：放大
+- `⌘ + -`：缩小
 
 ### 1.3 文件操作
 
@@ -58,7 +58,7 @@
 - `^ + ⌥ + ↓`：下
 - `^ + ⌥ + 回车`：最大
 - `^ + ⌥ + Delete`：默认
-- `^ + ⌥ + C`：中间
+- `^ + ⌥ + C`：中间Meslo LG M for Powerlinev
 
 ### 1.6 Alrfed 快捷操作
 
@@ -90,23 +90,23 @@
 快捷键:
 
 - 选中即复制
-- command + w 关闭标签
-- command + t 新建标签
-- command + 数字 command + 左右方向键    切换标签
-- command + enter 切换全屏
-- command + f 查找
-- command + d 水平分屏
-- command + shift + d 垂直分屏
-- command + option + 方向键 command + [ 或 command + ] 切换屏幕
-- command + ; 查看历史命令
-- command + shift + h 查看剪贴板历史
-- control + u    清除当前行
-- control + l    清屏
-- control + a    到行首
-- control + e    到行尾
-- control + f/b  前进后退
-- control + p    上一条命令
-- control + r    搜索命令历史
+- `⌘ + w`：关闭标签
+- `⌘ + 数字`，`⌘ + 左右方向键`：切换标签
+- `⌘ + t`：新建标签
+- `⌘ + enter`：切换全屏
+- `⌘ + f`：查找
+- `⌘ + d`：水平分屏
+- `⌘ + ⇧ + d`：垂直分屏
+- `⌘ + ⌥ + 方向键`，`⌘ + [`，`⌘ + ]`：切换屏幕
+- `⌘ + ;`：查看历史命令
+- `⌘ + ⇧ + h`：查看剪贴板历史
+- `⌃ + u`：清除当前行
+- `⌃ + l`：清屏
+- `⌃ + a`：到行首
+- `⌃ + e`：到行尾
+- `⌃ + f/b`：前进后退
+- `⌃ + p`：上一条命令
+- `⌃ + r`：搜索命令历史
 
 在当前文件夹打开 iTerm2:
 
@@ -136,7 +136,7 @@
 - 设置 zsh 为默认 shell：`chsh -s /bin/zsh`
 - 切换回原来的 dash：`chsh -s /bin/bash`
 
-更换 zsh 主题为 agnoster：
+更换 [zsh 主题](https://github.com/ohmyzsh/ohmyzsh/wiki/themes)为 agnoster：
 
 - `ZSH_THEME="agnoster"`
     + 编辑配置文件 `vim ~/.zshrc`
@@ -146,6 +146,7 @@
     + [下载](https://github.com/powerline/fonts)字体
     + 解压后，执行 `./install.sh`
     + 在 iterm2 中设置该字体，Preferences -> Profiles -> Text 中同时将Font(勾选 Use a different font for non—ASCII text) 和 non—ASCII Font 设置为 Meslo LG M DZ Regular for Powerline
+    + vsCode 中乱码：在设置中查找 terminal，Font Family 中添加字体 `Meslo LG M for Powerline`
 
 其他
 
@@ -174,7 +175,5 @@
 参考
 
 [利用iTerm2+oh-my-zsh+Dracula主题打造我的Mac终端利器](https://blog.csdn.net/daiyuhe/article/details/88667875)  
-[Mac下终端工具iTerm2安装](https://www.jianshu.com/p/ba08713c2b19)
-
-
-https://www.zhihu.com/question/27520658
+[Mac下终端工具iTerm2安装](https://www.jianshu.com/p/ba08713c2b19)  
+[解决Mac下VSCode打开zsh乱码](https://my.oschina.net/u/4192650/blog/3095142)
