@@ -156,8 +156,7 @@
 
 ### 2.3 安装命令高亮插件 [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
-- 下载到用户名下 .zsh 文件夹下：`sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-`
+- 下载到用户名下 .zsh 文件夹下：`sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting`
 - 编辑配置文件，使用插件
     + `vim ~/.zshrc`
     + 添加 `source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
